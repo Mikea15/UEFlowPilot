@@ -1,6 +1,9 @@
 # FlowPilot Public Repo
 Welcome to the public UE FlowPilot repository. 
 
+Small Demo Video
+https://www.youtube.com/watch?v=JAw-UT-Is3Y
+
 - 📃 Find all the documentation in the [Wiki](https://github.com/Mikea15/UEFlowPilot/wiki)
 - 🗨️ Join the [discord for support](https://discord.gg/Qhh6wYyE)
 - 🏪 Grab FlowPilot on UE's Marketplace [Link Pending]
