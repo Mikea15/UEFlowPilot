@@ -11,7 +11,6 @@ export default defineConfig({
 				github: 'https://github.com/mikea15/ueflowpilot',
 				discord: 'https://discord.gg/sF9KjZ9qqj',
 				twitter: 'https://twitter.com/michaeladaixo',
-				'x.com': 'https://twitter.com/michaeladaixo',
 			},
 			components: {
 				Footer: './src/components/CustomFooter.astro',
