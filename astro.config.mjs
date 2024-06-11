@@ -23,6 +23,7 @@ export default defineConfig({
 					label: 'About',
 					items: [
 						// Each item here is one entry in the navigation menu.
+						{ label: 'Intro', link: '/about/intro/' },
 						{ label: 'Changelog', link: '/about/changelog/' },
 					],
 				},
