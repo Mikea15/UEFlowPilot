@@ -53,6 +53,6 @@ export default defineConfig({
     credits: true
   }), tailwind({
     // Disable the default base styles:
-    applyBaseStyles: true,
+    applyBaseStyles: false,
   })]
 });
