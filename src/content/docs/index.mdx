@@ -1,35 +1,40 @@
 ---
 title: Welcome to FlowPilot!
-description: Get up running with FlowPilot in no time!
+description: 'A simple, modular and extensible gameplay system that allows fast data-driven gameplay flow creation for Unreal Engine 5'
 template: splash
 hero:
-  tagline: Get up running with FlowPilot in no time!
+  tagline: 'A simple, modular and extensible gameplay system that allows fast data-driven gameplay flow creation for Unreal Engine 5'
   image:
-    file: ../../assets/fp_icon_256.jpg
+    file: ../../assets/fp_icon.jpg
   actions:
-    - text: Start with a 'Using FlowPilot' Guide
-      link: /guides/usingflowpilot/
-      icon: right-arrow
+    - text: New to FlowPilot? Start Here
+      link: /about/intro/
+      icon: open-book
       variant: primary
     - text: Open the Reference Doc
       link: /guides/reference/
       icon: external
+	  variant: primary
 banner:
   content: |
-    FlowPilot is now available on the Epic Marketplace.
-    🏪 <a href="https://www.unrealengine.com/marketplace/en-US/product/88621a7957c0435991e5d0ce327e9f68">Check it out</a> 🎉
+    FlowPilot is available now!
+    🏪 <a href="https://www.unrealengine.com/marketplace/en-US/product/88621a7957c0435991e5d0ce327e9f68">Get it from the Unreal Marketplace</a> 🎉
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { LinkCard, Card, CardGrid } from '@astrojs/starlight/components';
 
-## Introductory Guides
+<CardGrid>
+	<LinkCard title="Unreal Marketplace" icon="rocket" href="https://www.unrealengine.com/marketplace/en-US/product/88621a7957c0435991e5d0ce327e9f68" />
+	<LinkCard title="Discord Support" href="https://discord.gg/sF9KjZ9qqj" />
+</CardGrid>
 
-<CardGrid stagger>
-	<Card title="Make a Level Intro" icon="pencil">
+## Featured Pages
+<CardGrid>
+	<Card title="Make a Level Intro" icon="rocket">
 		Learn to use FlowPilot by making a simple level intro.
 		[Read Now](/guides/usingflowpilot)
 	</Card>
-	<Card title="Re-Usable FlowPilot Assets" icon="add-document">
+	<Card title="Reusable FlowPilot Assets" icon="add-document">
 		Create re-usable FlowPilot assets. Now that you know how to make a simple level intro, lets use what we built to make a new sequence and spawn a few actors in the game.
 		[Read Now](/guides/usingflowpilot)
 	</Card>
@@ -37,8 +42,7 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 		Want to stay on top of performance, and know what's going on? Learn about Visual Logger, Profiling, and reading FlowPilot logs.
 		[Read Now](/guides/usingflowpilot)
 	</Card>
-	<Card title="More Guides" icon="open-book">
-		Check the rest of the guides! [Here](/guides/usingflowpilot/).
-		You can also create a pull request on Github if you want to add a new one!
+	<Card title="Console Commands Reference" icon="setting">
+		Open the list of [Console Commands Here](/about/consolecommands/)
 	</Card>
 </CardGrid>
