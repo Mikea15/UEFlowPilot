@@ -11,6 +11,9 @@ description: Record of all FLowPilot changes per version update.
 - Adds FlowPilotEditor
 - Adds Base functionality to FlowPilotEditor
 - Renames UFPTaskNode to UFlowPilotTask
+- Adds missing ExitChildTask call from Failing Sequence
+- Fix Last node not being properly handled if disabled
+- Adds new FlowPilot Website and Online Documentation at <http://flowpilot.dev>
 
 ### v0.6
 
