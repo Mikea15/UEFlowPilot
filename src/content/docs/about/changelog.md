@@ -5,15 +5,21 @@ description: Record of all FLowPilot changes per version update.
 
 ### v0.8
 
-- Improve Error Logging
-- Adds Example content to plugin
-- Adds Customization and improves Debug View.
-- Adds FlowPilotEditor
-- Adds Base functionality to FlowPilotEditor
-- Renames UFPTaskNode to UFlowPilotTask
-- Adds missing ExitChildTask call from Failing Sequence
-- Fix Last node not being properly handled if disabled
-- Adds new FlowPilot Website and Online Documentation at <http://flowpilot.dev>
+- Update: Improve Error Logging
+- Add: New example content
+- Add: Customization and improves Debug View.
+- Add: FlowPilotEditor with Basic functionality
+- Add: Drag and Drop Support
+- Add: data validation to FlowPilotEditor
+- Add: Implemented Parent/Child relationship on `UFlowPilotTask`
+- Refactor: Rename `UFPTaskNode` to `UFlowPilotTask`
+- Add: missing ExitChildTask call from `UFPTask_Sequence` when a Task returns Failure
+- Add: Editor data to customize display of Tasks
+- Add: Editor Settings to customize editing experience
+- Fix: `UFPTaskRunner` was not correctly handling running the last Task if it was Disabled, returning Failure, instead of the last task result
+- Add: New FlowPilot Website and Online Documentation at <http://flowpilot.dev>
+- Deprecate: MainFlow in `UFlowPilot` in favor of `UFPTask_Sequence` as the root node
+- Add: Data Versioning to automatically convert MainFlow to Sequence Child Tasks
 
 ### v0.6
 
