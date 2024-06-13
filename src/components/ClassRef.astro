@@ -8,6 +8,7 @@ const { className, parent } = Astro.props
 ---
 
 <div>
-    <a href="./reference/{className}">{className}</a> : <a href="./reference/{parent}">{parent}</a>
+    <a href={ '../../reference/'.concat(className.toLowerCase()) }>{className}</a> : 
+    <a href={ '../../reference/'.concat(parent.toLowerCase()) }>{parent}</a>
 </div>
 
