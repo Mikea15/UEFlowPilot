@@ -1,0 +1,11 @@
+---
+interface Props {
+    c: string;
+    p?: string;
+}
+
+const { c, p } = Astro.props
+---
+
+<code class="font-semibold">{c}{ p && (<span> : </span> <a href={ '../../reference/'.concat(p.toLowerCase()) }>{p}</a>)}</code>
+

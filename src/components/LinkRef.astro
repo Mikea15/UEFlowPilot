@@ -1,0 +1,10 @@
+---
+interface Props {
+    c: string;
+}
+
+const { c } = Astro.props
+---
+
+<code><a href={ '../../reference/'.concat(c.toLowerCase()) }>{c}</a></code>
+

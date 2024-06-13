@@ -1,0 +1,25 @@
+---
+title: Hide and Seek Smart Object
+description: Make a smart object that follows you arround when you dont look at it
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+<Steps>
+
+1. Make a FlowPilot Asset
+
+2. Add While Task
+
+3. Add Actor Facing Task
+
+    We get the player via GameplayTag, and check if its facing us, using their ViewPoint
+    If this tasks succeeds, we move to the next
+
+4. Add Teleport To Task
+
+    We find a position behind the player and teleport there.
+
+5. Now we repeat the loop
+
+</Steps>
