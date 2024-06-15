@@ -1,0 +1,126 @@
+---
+title: Introduction to FlowPilot
+description: First time guide to use FlowPilot 
+---
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+import { Image } from 'astro:assets';
+import intro_mapview from '../../../assets/intro-mapview.png';
+import data_asset_menu from '../../../assets/misc-data-asset.png';
+import select_flowpilot from '../../../assets/select-flowpilot.png';
+import tutorial_asset from '../../../assets/fp-tutorial-asset.png';
+import add_flowpilot_comp from '../../../assets/fp-add-new-component.png';
+import link_fp_asset from '../../../assets/link_fp_asset.png';
+
+
+Welcome! You're in the right place if you're just starting out. I'll try to be as simple as I can.
+Let's dive in!
+
+## Prep work
+
+I'm starting this tutorial with a mostly empty level, you won't need much more than that. 
+I have a basic AI that doesn't have a behavior and a couple of blocks, and triggers in the level.
+
+<Image src={intro_mapview} alt="MapView" />
+
+In this guide, we're going to be:
+
+- [ ] Creating a FlowPilot Asset
+- [ ] Add a FlowPilotComponent to either a Level Blueprint or Actor in the Level
+- [ ] Edit FlowPilot Asset to have a couple of AI spawn when the Player enters a trigger
+- [ ] Bonus: Discuss FlowActorReference, Tags and Groups
+- [ ] Bonus: Discuss SpawnLifetime and FlowPilot Execution Modes
+
+## Tutorial 
+
+### Creating a FlowPilot Asset
+
+<Steps>
+1. Flow Pilot Asset is found in `Miscellaneous > Data Asset`
+    <Image src={data_asset_menu} alt="Data Asset Menu" />
+
+2. Search for FlowPilot
+    <Image src={select_flowpilot} alt="Select FlowPilot" />
+
+3. Save the Asset. I'll name mine `FP_Tutorial`.
+    <Image src={tutorial_asset} alt="Tutorial Asset" />
+    <Aside>Note that saving the asset will show a warning! This is normal. Data Validation is there to catch when a FlowPilot is not correctly setup.</Aside>
+</Steps>
+
+### Adding a `FlowPilotComponent` to an Actor
+
+We can now add a `FlowPilotComponent` to an Actor (you could do this to any Level Blueprint or Actor Blueprint as well.)
+
+<Steps>
+
+1. Create any Empty Actor in the Level and add a `FlowPilotComponent` to it.
+    <Image src={add_flowpilot_comp} alt="Add FlowPilotComponent Component to Actor" />
+
+1. Selecting the newly created component we can now reference the asset `FP_Tutorial` we have previously created.
+    <Image src={link_fp_asset} alt="Link FlowPilot Asset" />
+    
+2. Check `Auto Start on Begin Play` to start FlowPilot when we start the game. 
+
+3. Execution Mode handles how FlowPilot Runs, and what happens on Success or Failure. For now, we can leave it as `Run Once`.
+
+</Steps>
+
+At this point, you have successfully created a new FlowPilot asset and have an actor that can run the Flow! AMAZING!
+Lets edit FlowPilot and start seeing it in action!
+
+### Editing Flow
+
+import tutorial_editor_view from '../../../assets/tutorial_editor_view.png';
+import add_spawn_task from '../../../assets/add_spawn_task.png';
+import spawn_class_details from '../../../assets/spawn_class_details.png';
+
+<Steps>
+
+1. Open `FP_Tutorial`. You'll see an editor with 3 panels. 
+The left one is a full view of the asset, the middle one shows you the FlowTree and the right panel displays details when a Task is selected from the Tree. 
+    <Image src={tutorial_editor_view} alt="Tutorial Editor View" />
+
+2. Click on `Root Sequence` and then either `Right Click -> Add Task` or `Add` Button on the Toolbar. This will create a `FPTask_Sequence` by default.
+With `Root Sequence` still selected, head over to the Details Tab and change the class for `Index[0]` to `Gameplay | Spawn Class`.
+    <Image src={add_spawn_task} alt="Add Spawn Class" />
+
+3. Select `Spawn Class` from the TreeView, and lets examine what we can do on the Details Tab.
+    <Image src={spawn_class_details} alt="Spawn Class Details" />
+
+4. I'm going to select my AI for property `Spawn Class`. Feel free to use any class/actor/bp you'd like
+
+5. Save, and Run the game. Lets see what that does.
+
+</Steps>
+
+<Aside type="caution" title="Nothing happened?">It seems like nothing happened! Strange! Fear not, lets find out</Aside>
+
+I'm going to make a few changes to the MainFlow.
+
+<Steps>
+
+1. Open `FP_Tutorial`
+
+2. Select `Spawn Class` from the TreeView.
+
+4. Change Property `ActorSpawnLifetime` from `FlowPilot` to `Persistent`
+
+5. Save, and Run the game.
+
+</Steps>
+
+<Aside type="tip" title="Much Success!">
+We now have an Actor spawned at the location of our `FlowPilotComponent`'s own Actor Location!
+
+Changing the Spawn Lifetime, meant that depending on which kind of Lifetime you want, FlowPilot can automatically destroy what was spawned (i.e. `FlowPilot` lifetime), 
+or leave them in the level (i.e. `Persistent` lifetime)
+</Aside>
+
+
+
+
+
+
+
+
+
