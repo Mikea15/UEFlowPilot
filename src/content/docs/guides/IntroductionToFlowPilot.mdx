@@ -47,7 +47,7 @@ We can now add a <LinkRef c="UFlowPilotComponent" /> to an Actor (you could do t
 
 <Steps>
 
-1. Create any Empty Actor in the Level and add a `FlowPilotComponent` to it.
+1. Create any Empty Actor in the Level and add a <LinkRef c="UFlowPilotComponent" /> to it.
     <Image src={add_flowpilot_comp} alt="Add FlowPilotComponent Component to Actor" />
 
 1. Selecting the newly created component we can now reference the asset `FP_Tutorial` we have previously created.
@@ -102,7 +102,7 @@ I'm going to make a few changes to the MainFlow.
 </Steps>
 
 <Aside type="tip" title="Much Success!">
-We now have an Actor spawned at the location of our `FlowPilotComponent`'s own Actor Location!
+We now have an Actor spawned at the location of our <LinkRef c="UFlowPilotComponent" />'s own Actor Location!
 
 Changing the Spawn Lifetime, meant that depending on which kind of Lifetime you want, FlowPilot can automatically destroy what was spawned (i.e. `FlowPilot` lifetime) when its execution ends, 
 or leave them in the level (i.e. `Persistent` lifetime)
@@ -114,10 +114,10 @@ import reference_spawn from '../../../assets/reference_spawn.png';
 import runtime_tags from '../../../assets/runtime_tags.png';
 
 
-Right now, the AI we're spawning is using the Actor where `UFlowPilotComponent` was added, as the source location.
-This is done with the Property `Spawn Location Reference`. This property is a custom type called `FlowActorReference`.
+Right now, the AI we're spawning is using the Actor where <LinkRef c="UFlowPilotComponent" /> was added, as the source location.
+This is done with the Property `Spawn Location Reference`. This property is a custom type called <LinkRef c="FFlowActorReference" />.
 
-You can read more about <LinkRef c="FlowActorReference" />
+You can read more about <LinkRef c="FFlowActorReference" />
 
 Lets now change where we spawn the AI.
 
@@ -135,7 +135,7 @@ Lets now change where we spawn the AI.
 
 You should now see the Actor spawn at the new location.
 
-There's a third `Scope` option for `FlowActorReferences` which is `Runtime`.
+There's a third `Scope` option for <LinkRef c="FFlowActorReference" /> which is `Runtime`.
 Runtime means the actor we want to find and use is not yet in the level. This is every actor that is spawned during gameplay, therefor at `Runtime`.
 The way FlowPilot handles this is using `GameplayTags`. `FlowPilot` uses `GameplayTags` to easily find single, or groups of actors that have the tag.
 
@@ -148,13 +148,13 @@ Add a Tag to any Actor in your level, and reference it. Does your actor spawn at
 <Aside type="tip" title="UTagActorComponent"> 
 Every Actor has a `Tags` Section in their properties. This is where tags can be added. These are text by default so, error prone.
 
-FlowPilot includes a `UTagActorComponent` component to make adding Tags to actors easy. 
+FlowPilot includes a <LinkRef c="UTagActorComponent" /> component to make adding Tags to actors easy. 
 </Aside>
 
 ## Wrapping Up
 
 You should now have a basic understanding of how to create, edit, and run FlowPilot. 
-We covered how to create an asset, linking the asset to a FlowPilotComponent, spawn actors in game, and use GameplayTags to find Actors.
+We covered how to create an asset, linking the asset to a <LinkRef c="UFlowPilotComponent" />, spawn actors in game, and use GameplayTags to find Actors.
 These constitute the barebones of FlowPilot.
 
 Go explore other more in depth Guides. 

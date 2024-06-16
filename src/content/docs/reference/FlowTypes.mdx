@@ -3,4 +3,74 @@ title: Flow Types
 description: FlowTypes.h contains definition about various types used throughout FlowPilot
 ---
 
-### Description
+## Description
+
+import LinkRef from '../../../components/LinkRef.astro'; 
+
+This page lists the Enums used in FlowPilot.
+
+### `EFPStopType`
+
+Used when passed by parameter to a stop running request.
+
+| Value | Description |
+| ------- | ----------- |
+| Normal  | Normal Stop/Cancellation Flow |
+| Force | Force Stop Execution |
+
+
+### `EFPTaskResult`
+
+Used to describe `UFlowPilotTask` execution state.
+
+| Value | Description |
+| ------- | ----------- |
+| None  | Not Started yet |
+| InProgress | Task in progress and ticking |
+| Succeeded | Task is completee, with Success Result |
+| Failed | Task is completee, with Fail Result |
+| Error | Task is completee, with Error Result |
+
+### `EFPFlowState`
+
+Used to describe `UFlowPilot` execution state.
+
+| Value | Description |
+| ------- | ----------- |
+| None  | Not Started yet |
+| InProgress | FlowPilot is Running |
+| Paused | FlowPilot has started but is paused |
+| Succeeded | FlowPilot is Done with Success |
+| Failed | FlowPilot is Done with Fail result |
+| Error | FlowPilot is Done with Error result |
+
+### `EFlowActorSpawnLifetime`
+
+| Value | Description |
+| ------- | ----------- |
+| FlowPilot  | Spawned actor will live during FlowPilot Execution and automatically despawn when Flow Ends |
+| Persistent | Spawned actors will stay on the level event when Flow Stops. |
+
+### `EFlowActorScope`
+
+Used with `FFlowActorReference` 
+
+| Scope | Description |
+| ------- | ----------- |
+| Self    | Returns the Actor that <LinkRef c="UFlowPilotComponent" /> is running from |
+| InLevel | Returns an Actor selected directly from a Map/Level |
+| Runtime | Returns an Actor or Group of Actors that contains a `GameplayTag` |
+
+### `EFlowMode`
+
+Used by `UFlowPilotComponent` to control `UFlowPilot` execution mode.
+
+| Scope | Description |
+| ------- | ----------- |
+| RunOnce    | Executes Flow Once |
+| RunUntilSucceed | Executes until Succeeds Once |
+| RunUntilFail | Executes until Fails Once |
+| RunWhileSucceed | Executes in Loop while Succeeds |
+| RunWhileFail | Executes in Loop while Fails |
+| RunNonStop | Run non stop |
+
