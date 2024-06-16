@@ -4,14 +4,10 @@ description: First time guide to use FlowPilot
 ---
 import { Steps, Aside } from '@astrojs/starlight/components';
 
+import LinkRef from '../../../components/LinkRef.astro'; 
+
 import { Image } from 'astro:assets';
 import intro_mapview from '../../../assets/intro-mapview.png';
-import data_asset_menu from '../../../assets/misc-data-asset.png';
-import select_flowpilot from '../../../assets/select-flowpilot.png';
-import tutorial_asset from '../../../assets/fp-tutorial-asset.png';
-import add_flowpilot_comp from '../../../assets/fp-add-new-component.png';
-import link_fp_asset from '../../../assets/link_fp_asset.png';
-
 
 Welcome! You're in the right place if you're just starting out. I'll try to be as simple as I can.
 Let's dive in!
@@ -23,17 +19,15 @@ I have a basic AI that doesn't have a behavior and a couple of blocks, and trigg
 
 <Image src={intro_mapview} alt="MapView" />
 
-In this guide, we're going to be:
-
-- [ ] Creating a FlowPilot Asset
-- [ ] Add a FlowPilotComponent to either a Level Blueprint or Actor in the Level
-- [ ] Edit FlowPilot Asset to have a couple of AI spawn when the Player enters a trigger
-- [ ] Bonus: Discuss FlowActorReference, Tags and Groups
-- [ ] Bonus: Discuss SpawnLifetime and FlowPilot Execution Modes
-
 ## Tutorial 
 
 ### Creating a FlowPilot Asset
+
+import data_asset_menu from '../../../assets/misc-data-asset.png';
+import select_flowpilot from '../../../assets/select-flowpilot.png';
+import tutorial_asset from '../../../assets/fp-tutorial-asset.png';
+import add_flowpilot_comp from '../../../assets/fp-add-new-component.png';
+import link_fp_asset from '../../../assets/link_fp_asset.png';
 
 <Steps>
 1. Flow Pilot Asset is found in `Miscellaneous > Data Asset`
@@ -47,9 +41,9 @@ In this guide, we're going to be:
     <Aside>Note that saving the asset will show a warning! This is normal. Data Validation is there to catch when a FlowPilot is not correctly setup.</Aside>
 </Steps>
 
-### Adding a `FlowPilotComponent` to an Actor
+### Adding a FlowPilotComponent to an Actor in the Level
 
-We can now add a `FlowPilotComponent` to an Actor (you could do this to any Level Blueprint or Actor Blueprint as well.)
+We can now add a <LinkRef c="UFlowPilotComponent" /> to an Actor (you could do this to any Level Blueprint or Actor Blueprint as well.)
 
 <Steps>
 
@@ -99,13 +93,11 @@ I'm going to make a few changes to the MainFlow.
 
 <Steps>
 
-1. Open `FP_Tutorial`
+1. Go back to `FP_Tutorial` and select `Spawn Class` task
 
-2. Select `Spawn Class` from the TreeView.
+2. Change Property `ActorSpawnLifetime` from `FlowPilot` to `Persistent`
 
-4. Change Property `ActorSpawnLifetime` from `FlowPilot` to `Persistent`
-
-5. Save, and Run the game.
+3. Save, and Run the game.
 
 </Steps>
 
@@ -116,9 +108,57 @@ Changing the Spawn Lifetime, meant that depending on which kind of Lifetime you 
 or leave them in the level (i.e. `Persistent` lifetime)
 </Aside>
 
-... more to come...
+### Change Spawn Location
+
+import reference_spawn from '../../../assets/reference_spawn.png';
+import runtime_tags from '../../../assets/runtime_tags.png';
 
 
+Right now, the AI we're spawning is using the Actor where `UFlowPilotComponent` was added, as the source location.
+This is done with the Property `Spawn Location Reference`. This property is a custom type called `FlowActorReference`.
+
+You can read more about <LinkRef c="FlowActorReference" />
+
+Lets now change where we spawn the AI.
+
+<Steps>
+1. Go back to `FP_Tutorial` and select `Spawn Class` task
+
+2. In the details panel, change `Spawn Location Reference` `Scope` from `Self` to `In Level`
+
+3. Lets create a new Actor in the level, and reference that in `Level Actor`
+    <Image src={reference_spawn} alt="Reference Spawn Actor" />
+
+4. Save and Run.
+
+</Steps>
+
+You should now see the Actor spawn at the new location.
+
+There's a third `Scope` option for `FlowActorReferences` which is `Runtime`.
+Runtime means the actor we want to find and use is not yet in the level. This is every actor that is spawned during gameplay, therefor at `Runtime`.
+The way FlowPilot handles this is using `GameplayTags`. `FlowPilot` uses `GameplayTags` to easily find single, or groups of actors that have the tag.
+
+<Image src={runtime_tags} alt="Referente by GameplayTag" />
+
+I'll leave this one for you as a task.
+
+Add a Tag to any Actor in your level, and reference it. Does your actor spawn at that location?
+
+<Aside type="tip" title="UTagActorComponent"> 
+Every Actor has a `Tags` Section in their properties. This is where tags can be added. These are text by default so, error prone.
+
+FlowPilot includes a `UTagActorComponent` component to make adding Tags to actors easy. 
+</Aside>
+
+## Wrapping Up
+
+You should now have a basic understanding of how to create, edit, and run FlowPilot. 
+We covered how to create an asset, linking the asset to a FlowPilotComponent, spawn actors in game, and use GameplayTags to find Actors.
+These constitute the barebones of FlowPilot.
+
+Go explore other more in depth Guides. 
+Happy game developing!
 
 
 
