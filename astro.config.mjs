@@ -37,9 +37,11 @@ export default defineConfig({
       { label: 'Console Commands',  link: '/about/consolecommands/' }
     ]}, {
       label: 'Guides',
-      autogenerate: {
-        directory: 'guides'
-      }
+      items: [
+        // Each item here is one entry in the navigation menu.
+        { label: 'FlowPilot Overview', link: '/guides/flowpilotoverview/' }, 
+        { label: 'Introduction to FlowPilot', link: '/guides/introductiontoflowpilot/' }, 
+      ]
     }, {
       label: 'Reference',
       autogenerate: {
