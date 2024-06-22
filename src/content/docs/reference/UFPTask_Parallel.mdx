@@ -14,5 +14,11 @@ import schema from '../../../assets/ufptask_parallel.png';
 
 <Image src={schema} alt="UFPTask_Parallel Schema" />
 
+`UFPTask_Parallel` is a Task that can run multiple tasks at the same time (in parallel). 
 
+There are various _Completion types_ for this task:
 
+- Any Succeed: `UFPTask_Parallel` will succeed at the first Children Task that succeeds. It won't wait for all tasks to be complete. Otherwise fail.
+- All Succeed: `UFPTask_Parallel` will wait for all Child Task's results, and if they all succeeded, then `UFPTask_Parallel` succeeds. Otherwise fail.
+- Any Fail: `UFPTask_Parallel` will succeed at the first Children Task failure. It won't wait for all tasks to be complete. Otherwise fail.
+- All Fail: `UFPTask_Parallel` will wait for all Child Task's results and if they all failed, then `UFPTask_Parallel` succeeds. Otherwise fail.

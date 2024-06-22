@@ -12,65 +12,120 @@ This page lists the Enums used in FlowPilot.
 ### `EFPStopType`
 
 Used when passed by parameter to a stop running request.
-
-| Value | Description |
-| ------- | ----------- |
-| Normal  | Normal Stop/Cancellation Flow |
-| Force | Force Stop Execution |
+```cpp
+UENUM()
+enum class EFPStopType : uint8
+{
+	// Normal Stop/Cancellation Flow
+	Normal,
+	// Force Stop Execution
+	Force
+};
+```
 
 
 ### `EFPTaskResult`
 
 Used to describe `UFlowPilotTask` execution state.
 
-| Value | Description |
-| ------- | ----------- |
-| None  | Not Started yet |
-| InProgress | Task in progress and ticking |
-| Succeeded | Task is completee, with Success Result |
-| Failed | Task is completee, with Fail Result |
-| Error | Task is completee, with Error Result |
+```cpp
+UENUM(BlueprintType)
+enum class EFPTaskResult : uint8
+{
+	// Not started yet
+	None,
+	// In progress and Ticking
+	InProgress,
+	// Complete with Success Result
+	Succeeded,
+	// Complete with Fail Result
+	Failed,
+	// Not Complete. Return Error
+	Error
+};
+```
 
 ### `EFPFlowState`
 
 Used to describe `UFlowPilot` execution state.
 
-| Value | Description |
-| ------- | ----------- |
-| None  | Not Started yet |
-| InProgress | FlowPilot is Running |
-| Paused | FlowPilot has started but is paused |
-| Succeeded | FlowPilot is Done with Success |
-| Failed | FlowPilot is Done with Fail result |
-| Error | FlowPilot is Done with Error result |
+```cpp
+UENUM()
+enum class EFlowState : uint8
+{
+	// Not started yet
+	None,
+	// FlowPilot Running
+	InProgress,
+	// FlowPilot has started but is paused
+	Paused,
+	// FlowPilot Done with Success
+	Succeeded,
+	// FlowPilot Done with fail
+	Failed,
+	// FlowPilot not Done, with Error
+	Error
+};
+```
 
 ### `EFlowActorSpawnLifetime`
 
-| Value | Description |
-| ------- | ----------- |
-| FlowPilot  | Spawned actor will live during FlowPilot Execution and automatically despawn when Flow Ends |
-| Persistent | Spawned actors will stay on the level event when Flow Stops. |
+```cpp
+UENUM()
+enum class EFlowActorSpawnLifetime : uint8
+{
+	// Spawned actor will live during FlowPilot Execution, will despawn automatically when Flow Ends.
+	FlowPilot,
+
+	// Spawned actors will stay on the level event when Flow Stops.
+	Persistent
+};
+```
 
 ### `EFlowActorScope`
 
-Used with `FFlowActorReference` 
+Used with <LinkRef c="FFlowActorReference" />
 
-| Scope | Description |
-| ------- | ----------- |
-| Self    | Returns the Actor that <LinkRef c="UFlowPilotComponent" /> is running from |
-| InLevel | Returns an Actor selected directly from a Map/Level |
-| Runtime | Returns an Actor or Group of Actors that contains a `GameplayTag` |
+```cpp
+UENUM()
+enum class EFlowActorScope : uint8
+{
+	// Actor or Component is in Own Actor
+	Self,
+
+	// Actor that live in the world
+	InLevel,
+	
+	// Actors spawned at Runtime
+	Runtime,
+};
+```
 
 ### `EFlowMode`
 
 Used by `UFlowPilotComponent` to control `UFlowPilot` execution mode.
 
-| Scope | Description |
-| ------- | ----------- |
-| RunOnce    | Executes Flow Once |
-| RunUntilSucceed | Executes until Succeeds Once |
-| RunUntilFail | Executes until Fails Once |
-| RunWhileSucceed | Executes in Loop while Succeeds |
-| RunWhileFail | Executes in Loop while Fails |
-| RunNonStop | Run non stop |
+```cpp
+UENUM()
+enum class EFlowMode : uint8
+{
+	// Executes Flow Once.
+	RunOnce,
+
+	// Executes until Succeeds Once
+	RunUntilSucceed,
+
+	// Executes until Fails Once
+	RunUntilFail,
+
+	// Executes in Loop while Succeeds
+	RunWhileSucceed,
+
+	// Executes in Loop while Fails
+	RunWhileFail,
+
+	// Run non stop.
+	RunNonStop
+};
+```
 

@@ -14,5 +14,11 @@ import schema from '../../../assets/ufptask_sequence.png';
 
 <Image src={schema} alt="UFPTask_Sequence Schema" />
 
+`UFPTask_Sequence` is a Task can contain many other tasks. Its purpose is to run each task sequentially.
+The schema above explains how it should work.
+
+`UFPTask_Sequence` will succeed if all of its tasks ran and all succeeded.
+ 
+If one of the Tasks fail, `UFPTask_Sequence` will return failure.
 
 

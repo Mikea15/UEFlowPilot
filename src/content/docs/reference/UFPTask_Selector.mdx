@@ -14,5 +14,11 @@ import schema from '../../../assets/ufptask_selector.png';
 
 <Image src={schema} alt="UFPTask_Selector Schema" />
 
+`UFPTask_Selector` is a Task can contain many other tasks. Its purpose is to run each task sequentially.
+The schema above explains how it should work.
 
+`UFPTask_Selector` will succeed at the first task that returns success. 
 
+If one task fails, `UFPTask_Selector` will try running the next task after the next, until one of them succeeds.
+
+If no task succeeded, then `UFPTask_Selector` will return failure.
