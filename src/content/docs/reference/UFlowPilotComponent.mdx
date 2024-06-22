@@ -1,0 +1,35 @@
+---
+title: UFlowPilotComponent
+description: UFlowPilotComponent reference page
+---
+import Ref from '../../../components/Ref.astro' 
+import LinkRef from '../../../components/LinkRef.astro' 
+
+import { Image } from 'astro:assets';
+import schema from '../../../assets/uflowpilotcomponent.png';
+
+<Ref c="UFlowPilotComponent" p="UActorComponent" />
+
+### Description
+
+<Image src={schema} alt="UFlowPilotComponent Schema" />
+
+`UFlowPilotComponent` is the base component required to run FlowPilot. It takes a <LinkRef c="UFlowPilot" /> Asset, instances it and runs it.
+Most of its methods are exposed to blueprint to allow quick iteration.
+
+`UFlowPilotComponent` also has custom _ExecutionModes_ which can be:
+- RunOnce: Runs flow once, wether it succeed or fails
+- RunUntilSucceed: Runs flow until it succeeds, then stops 
+- RunUntilFail: Runs flow until it fails, then stops
+- RunWhileSucceed: Runs flow while it succeed. Will stop on failure.
+- RunWhileFail: Runs flow while it fails. Will stop on success
+- RunNonStop: Runs flow over and over.
+
+There's a _RetryDelay_ to help control how fast should a retry occur.
+
+The Root Task of <LinkRef c="UFlowPilot" /> is a <LinkRef c="UFPTask_Sequence" />, therefore, the execution of `UFlowPilotComponent` is a sequence.
+
+
+
+
+
