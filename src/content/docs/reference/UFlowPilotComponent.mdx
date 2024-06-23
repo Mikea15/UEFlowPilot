@@ -7,10 +7,13 @@ import LinkRef from '../../../components/LinkRef.astro'
 
 import { Image } from 'astro:assets';
 import schema from '../../../assets/uflowpilotcomponent.png';
+import beginplay from '../../../assets/uflowpilotcomponent_beginplay.png';
+import tick from '../../../assets/uflowpilotcomponent_tickcomponent.png';
+import startflow from '../../../assets/uflowpilotcomponent_startflow.png';
 
 <Ref c="UFlowPilotComponent" p="UActorComponent" />
 
-### Description
+## Description
 
 <Image src={schema} alt="UFlowPilotComponent Schema" />
 
@@ -29,7 +32,28 @@ There's a _RetryDelay_ to help control how fast should a retry occur.
 
 The Root Task of <LinkRef c="UFlowPilot" /> is a <LinkRef c="UFPTask_Sequence" />, therefore, the execution of `UFlowPilotComponent` is a sequence.
 
-### API
+## Implementation Details
+### `BeginPlay()`
+
+<Image src={beginplay} alt="UFlowPilotComponent BeginPlay" />
+
+Begin play will setup the initial FlowPilot `RootSequence` with the necessary context. This is run only once.
+If `Start on BeginPlay` is ticked, then we enter the first Task. If that result is succeeded we set the flow in progress and start ticking `UFlowPilotComponent`.
+
+### `TickComponent()`
+
+<Image src={tick} alt="UFlowPilotComponent TickComponent" />
+
+During `UFlowPilotComponent`'s TickComponent method, we run `RootSequence`s tick method which in turn will execute its children along the FlowPilot hierarchy, one Task at a time (unless using Parallel Task).
+When a task returns a result, `UFlowPilotComponent` parses it and decides if we have to either retry, fail or error.
+
+`RootSequence` will only return to `UFlowPilotComponent` when it has no more Tasks to run. While `RootSequence` has tasks running, its result will stay `InProgress` and `UFlowPilotComponent` will just tick as usual.
+
+### `StartFlow()`
+
+<Image src={startflow} alt="UFlowPilotComponent StartFlow" />
+
+## API
 
 Set of exposed methods to Blueprint
 
