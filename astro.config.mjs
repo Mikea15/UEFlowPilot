@@ -39,7 +39,6 @@ export default defineConfig({
       label: 'Guides',
       items: [
         // Each item here is one entry in the navigation menu.
-        { label: 'FlowPilot Overview', link: '/guides/flowpilotoverview/' }, 
         { label: 'Introduction to FlowPilot', link: '/guides/introductiontoflowpilot/' }, 
       ]
     }, {
