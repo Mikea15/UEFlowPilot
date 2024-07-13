@@ -3,7 +3,19 @@ title: Changelog
 description: Record of all FLowPilot changes per version update.
 ---
 
+### v0.9
+
+_13/07/2024_
+
+- Add: Class Switcher in FlowPilotTask Customization View
+- Feature: Editor Task Palette Tab. You can now easily see tasks, grouped by category, and quickly add them to the flow.
+- Add: Show Quick Buttons Task is selected or hovered
+- Update: Only show toolbar when multiple tasks selected.
+- Add: Support for Unreal Engine 5.4
+
 ### v0.8
+
+_29/06/2014_
 
 - Update: Improve Error Logging
 - Add: New example content
@@ -20,6 +32,14 @@ description: Record of all FLowPilot changes per version update.
 - Add: New FlowPilot Website and Online Documentation at <http://flowpilot.dev>
 - Deprecate: MainFlow in `UFlowPilot` in favor of `UFPTask_Sequence` as the root node
 - Add: Data Versioning to automatically convert MainFlow to Sequence Child Tasks
+- Add: Support for Unreal Engine 5.4
+- Fix: FlowPilot Control not properly setup for callbacks.
+- Refactor: Cancellation and Exit flow, it now normalized. All Successful and Failing tasks should call Exit Method
+- Adds: Exit method now has the task result passed as parameter
+- Adds: Validation to FlowActorReference
+- Adds: Validation to FlowPilotTasks that didn't have it
+- Fix: Bad usage of CPU Traces. Added others and CPU CYCLE Stats.
+- Update: Usage of ForEachActor methods, now returns a boolean
 
 ### v0.6
 
