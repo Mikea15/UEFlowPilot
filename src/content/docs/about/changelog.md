@@ -3,6 +3,29 @@ title: Changelog
 description: Record of all FLowPilot changes per version update.
 ---
 
+### v0.9.2
+
+_24/08/2024_
+
+- Add: New FPTask_PossessPawn, allowing pawn possession by Players or AI
+- Add: New FPTask_PlayAnimation. Similar to BTTask_PlayAnimation, but can play animation on multiple Pawns, and has Soft Pointer to Anim Asset.
+- Fix: Spawning new Classes at runtime with existing cached Tags will properly cache them as well.
+- Fix: Crash when pasting Task form one FlowPilotAsset to another
+- Fix: Some undo functionality has been restored
+- Fix: Properly removes null tasks when saving.
+- Add: Task Palette now has a search box to filter out the list of Tasks.
+- Update: Task Palette has Categories expanded by default now.
+- Update: Exposed method to grab Brushes directly from Tasks for customization
+
+
+### v0.9.1
+
+_14/07/2024_
+
+- Fix: Task icons paths not showing up.
+- Del: Removes temporary icons for validation to prevent a crash
+
+
 ### v0.9
 
 _13/07/2024_
