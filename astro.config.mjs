@@ -8,7 +8,7 @@ export default defineConfig({
   site: 'https://flowpilot.dev',
   integrations: [starlight({
     title: 'FlowPilot',
-    description: 'Unreal Engine Code Plugin: Simple, modular and extensible gameplay system that allows fast data-driven gameplay flow creation.',
+    description: 'Powerful, efficient, and intuitive gameplay design for Unreal Engine developers.',
     logo: {
       src: './src/assets/fp_icon_256.jpg',
       replacesTitle: false,
