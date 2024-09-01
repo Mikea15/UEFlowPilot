@@ -59,10 +59,6 @@ When a task returns a result, `UFlowPilotComponent` parses it and decides if we 
 ## Properties
 
 ```cpp
-// ~FComponentVisualizer 
-
-FFlowStateChangeSignature OnFlowStateChanged;
-
 // Automatically starts FlowPilot on BeginPlay 
 UPROPERTY(EditAnywhere, Category=FlowPilot)
 uint8 bAutoStartOnBeginPlay : 1;
@@ -189,14 +185,6 @@ void BindToFlowPilotLifetime(AActor* InActor);
 > Will prefect Actor Reference if Referenced via External Tag. 
 ```cpp
 void PrefetchActorReference(const FFlowActorReference& ActorReference);
-
-```
-
-### `DrawVisualization`
-> FComponentVisualizer \
-> Draw visualization for the supplied component 
-```cpp
-virtual void DrawVisualization(const UActorComponent* Component, const FSceneView* View, FPrimitiveDrawInterface* PDI) override;
 
 ```
 
