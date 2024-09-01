@@ -1,6 +1,6 @@
 ---
 title: UFlowPilotComponent
-description: Reference page for UFlowPilotComponent class
+description: Reference page for UFlowPilotComponent
 ---
 import Ref from '../../../components/Ref.astro'
 import LinkRef from '../../../components/LinkRef.astro'
@@ -53,82 +53,9 @@ When a task returns a result, `UFlowPilotComponent` parses it and decides if we 
 
 <Image src={startflow} alt="UFlowPilotComponent StartFlow" />
 
-## API
-
-Set of exposed methods to Blueprint
-
-```cpp
-// Sets FlowPilot data asset
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-bool SetFlowPilotAsset(UFlowPilot* InFlowPilotAsset);
-
-// Start Current FlowData
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-void StartFlow();
-
-// Stops FlowPilot
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-void StopFlow(bool bIsSuccessful, EFPStopType StopType = EFPStopType::Normal);
-
-// Pauses FlowPilot. Execution must have been started first
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-void PauseFlow();
-
-// UnPauses FlowPilot, if Paused.
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-void UnPauseFlow();
-
-// Returns true if FlowPilot is Paused
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-bool IsPaused() const { return FlowState == EFlowState::Paused; }
-
-// Returns true is setup is valid
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-bool IsDataSetup() const { return FlowPilotAsset != nullptr; }
-
-// Returns FlowPilot state
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-EFlowState GetRunState() const { return FlowState; }
-
-// Returns true if FlowPilot is in Progress
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-bool IsRunning() const { return FlowState == EFlowState::InProgress; }
-
-// Finds single actor reference
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-AActor* FindSingleActor(const FFlowActorReference& ActorReference);
-
-// Finds all actors with reference (usually external tags on multiple actors)
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-TArray<AActor*> FindActors(const FFlowActorReference& ActorReference);
-
-// Finds and Caches Unique Actor via GameplayTag
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-AActor* FindSingleActorByTag(const FGameplayTag& Tag);
-
-// Find All Actors by Tag
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-TArray<AActor*> FindActorsByTag(const FGameplayTag& Tag);
-
-// Tracks Lifetime of Actor by FlowPilot. Will destroy when FlowPilot completes.
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-void AutoDespawnActorOnFlowStop(AActor* Actor);
-
-// Will prefect Actor Reference if Referenced via External Tag.
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-void PrefetchActorReference(const FFlowActorReference& ActorReference);
-
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-FString GetFlowPilotName() const;
-```
-
-
-
-
-
-
 ## Class Info
 - __FileName:__ `FlowPilotComponent.h`
+
 ## Properties
 
 ```cpp
@@ -157,6 +84,7 @@ float RetryDelay = 0.0f;
 TArray<TWeakObjectPtr<AActor>> FlowPilotLifetimeActors;
 
 ```
+
 ## Functions
 
 ### `SetFlowPilotAsset`
