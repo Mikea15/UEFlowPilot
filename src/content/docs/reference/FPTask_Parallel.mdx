@@ -24,49 +24,15 @@ There are various _Completion types_ for this task:
 - All Fail: `UFPTask_Parallel` will wait for all Child Task's results and if they all failed, then `UFPTask_Parallel` succeeds. Otherwise fail.
 
 ## Class Info
-__Parent Class:__ `UFlowPilotParent`
-
-### Properties
-
-| Property | Description |
-| :--- | :--- |
-| `EFlowParallelCompletionType DesiredCompletionType = EFlowParallelCompletionType::AllSucceed;` | This defines what makes this Task succeed to continue flow. |
-
-### Functions
-
-#### `UFPTask_Parallel` 
+- __Parent Class:__ `UFlowPilotParent`
+- __FileName:__ `FPTask_Parallel.h`
+## Properties
 
 ```cpp
-UFPTask_Parallel();
+// This defines what makes this Task succeed to continue flow. 
+UPROPERTY(EditDefaultsOnly, Category="FlowPilot")
+EFlowParallelCompletionType DesiredCompletionType = EFlowParallelCompletionType::AllSucceed;
+
 ```
-
-#### `Setup` 
-
-```cpp
-virtual void Setup(FFlowContext* InContext) override;
-```
-
-#### `Enter` 
-
-```cpp
-virtual bool Enter() override;
-```
-
-#### `Tick` 
-
-```cpp
-virtual EFPTaskResult Tick(float DeltaTime) override;
-```
-
-#### `Exit` 
-
-```cpp
-virtual void Exit(EFPTaskResult TaskResult) override;
-```
-
-#### `Reset` 
-
-```cpp
-virtual void Reset() override;
-```
+## Functions
 

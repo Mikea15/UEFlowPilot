@@ -4,42 +4,29 @@ description: Reference page for UFPTask_FlowPilotControl class
 ---
 
 ## Class Info
-__Parent Class:__ `UFlowPilotTask`
-
-### Properties
-
-| Property | Description |
-| :--- | :--- |
-| `FFlowActorReference ActorReference;` | Flow Actor reference to an Actors that have FlowPilotComponents |
-| `EFlowPilotControlType ControlType = EFlowPilotControlType::StartFlow;` | Flow Control Type |
-| `EFPStopType StopType = EFPStopType::CancelExecution;` | Flow Stop Type |
-| `EFlowControlSuccessCondition SuccessCondition = EFlowControlSuccessCondition::Instant;` | When starting a new FlowPilot, what's this Task's success condition?
-Essentially, we can Succeed instantly, or wait for InProgress or Stopped/Complete execution of the
-Controlled FlowPilot Component we're controlling. |
-
-### Functions
-
-#### `UFPTask_FlowPilotControl` 
+- __Parent Class:__ `UFlowPilotTask`
+- __FileName:__ `FPTask_FlowPilotControl.h`
+## Properties
 
 ```cpp
-UFPTask_FlowPilotControl();
+// Flow Actor reference to an Actors that have FlowPilotComponents 
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+FFlowActorReference ActorReference;
+
+// Flow Control Type 
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+EFlowPilotControlType ControlType = EFlowPilotControlType::StartFlow;
+
+// Flow Stop Type 
+UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(EditCondition="ControlType==EFlowPilotControlType::StopFlow", EditConditionHides))
+EFPStopType StopType = EFPStopType::CancelExecution;
+
+// When starting a new FlowPilot, what's this Task's success condition?\ 
+// Essentially, we can Succeed instantly, or wait for InProgress or Stopped/Complete execution of the\ 
+// Controlled FlowPilot Component we're controlling. 
+UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(EditCondition="ControlType==EFlowPilotControlType::StartFlow", EditConditionHides))
+EFlowControlSuccessCondition SuccessCondition = EFlowControlSuccessCondition::Instant;
+
 ```
-
-#### `Setup` 
-
-```cpp
-virtual void Setup(FFlowContext* InContext) override;
-```
-
-#### `Enter` 
-
-```cpp
-virtual bool Enter() override;
-```
-
-#### `Tick` 
-
-```cpp
-virtual EFPTaskResult Tick(float DeltaTime) override;
-```
+## Functions
 

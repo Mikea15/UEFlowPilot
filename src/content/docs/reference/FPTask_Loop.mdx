@@ -4,57 +4,10 @@ description: Reference page for UFPTask_Loop class
 ---
 
 ## Class Info
-__Parent Class:__ `UFlowPilotTask`
+- __Parent Class:__ `UFlowPilotTask`
+- __FileName:__ `FPTask_Loop.h`
+## Properties
 
-### Properties
-
-| Property | Description |
-| :--- | :--- |
-| `TObjectPtr<UFlowPilotTask> Task;` |  |
-| `uint8 bIsInfinite : 1;` |  |
-| `int32 Loops = 3;` |  |
-
-### Functions
-
-#### `UFPTask_Loop` 
-
-```cpp
-UFPTask_Loop();
-```
-
-#### `Setup` 
-
-```cpp
-virtual void Setup(FFlowContext* InContext) override;
-```
-
-#### `Enter` 
-
-```cpp
-virtual bool Enter() override;
-```
-
-#### `Tick` 
-
-```cpp
-virtual EFPTaskResult Tick(float DeltaTime) override;
-```
-
-#### `Exit` 
-
-```cpp
-virtual void Exit(EFPTaskResult TaskResult) override;
-```
-
-#### `Reset` 
-
-```cpp
-virtual void Reset() override;
-```
-
-#### `SetTask` 
-
-```cpp
-void SetTask(TObjectPtr<UFlowPilotTask> NewTask);
-```
+No properties in this class
+## Functions
 

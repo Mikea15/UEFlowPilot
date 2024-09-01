@@ -54,144 +54,142 @@ virtual void GetRuntimeDescription(TArray<FString>& OutLines) const {};
 ```
 
 ## Class Info
-__Parent Class:__ `UObject`
-
-### Properties
-
-| Property | Description |
-| :--- | :--- |
-| `FName TaskName = {};` |  |
-| `FName Description = {};` |  |
-| `uint8 bEnabled: 1;` | If False, Will skip this Task's execution |
-| `UFlowPilotTask* Parent = nullptr;` |  |
-
-### Functions
-
-#### `UFlowPilotTask` 
+- __Parent Class:__ `UObject`
+- __FileName:__ `FlowPilotTask.h`
+## Properties
 
 ```cpp
-UFlowPilotTask();
-```
+// If False, Will skip this Task's execution 
+UPROPERTY(EditDefaultsOnly, Category = "Task Options")
+uint8 bEnabled: 1;
 
-#### `Setup` 
-Setups Tasks. Called once per FlowPilotExecution, even after restarts.
+```
+## Functions
+
+### `Setup`
+> Setups Tasks. Called once per FlowPilotExecution, even after restarts. 
 ```cpp
 virtual void Setup(FFlowContext* InContext);
+
 ```
 
-#### `Enter` 
-Called when starting this Task. Returns true on success
+### `Enter`
+> Called when starting this Task. Returns true on success 
 ```cpp
 virtual bool Enter();
+
 ```
 
-#### `Tick` 
-Called on Tick. Will success automatically if not implemented by Child classes
+### `Tick`
+> Called on Tick. Will success automatically if not implemented by Child classes 
 ```cpp
 virtual EFPTaskResult Tick(float DeltaTime);
+
 ```
 
-#### `Exit` 
-Called when Task Finished
+### `Exit`
+> Called when Task Finished 
 ```cpp
 virtual void Exit(EFPTaskResult TaskResult);
+
 ```
 
-#### `Reset` 
-Resets all Tasks into their Setup States
+### `Reset`
+> Resets all Tasks into their Setup States 
 ```cpp
 virtual void Reset();
+
 ```
 
-#### `HasParent` 
-Disabled Tasks are skipped during execution
-Enables or Disables Task. Disabled Tasks will be skipped.
-Returns Task Name
-Sets Task Name
-Get Task Description
-Returns True if Task has Parent Task.
-Returns False if Task is Root Sequence Task
+### `HasParent`
+> Disabled Tasks are skipped during execution \
+> Enables or Disables Task. Disabled Tasks will be skipped. \
+> Returns Task Name \
+> Sets Task Name \
+> Get Task Description \
+> Returns True if Task has Parent Task. \
+> Returns False if Task is Root Sequence Task 
 ```cpp
 bool HasParent() const;
+
 ```
 
-#### `GetParent` 
-Returns Parent Task or nullptr
+### `GetParent`
+> Returns Parent Task or nullptr 
 ```cpp
 UFlowPilotTask* GetParent() const;
+
 ```
 
-#### `IsParent` 
-Sets Parent Task
-Returns True if This task is a FlowPilotParent Task containing children Tasks.
+### `IsParent`
+> Sets Parent Task \
+> Returns True if This task is a FlowPilotParent Task containing children Tasks. 
 ```cpp
 bool IsParent() const;
+
 ```
 
-#### `GetAsParent` 
-Returns this Cast to FlowPilotParent task.
+### `GetAsParent`
+> Returns this Cast to FlowPilotParent task. 
 ```cpp
 UFlowPilotParent* GetAsParent();
+
 ```
 
-#### `HasStarted` 
-Returns true when Task Started
+### `HasStarted`
+> Returns true when Task Started 
 ```cpp
-UFUNCTION(BlueprintCallable, Category="FlowPilotTask")
 bool HasStarted() const;
+
 ```
 
-#### `IsActive` 
-Returns true when Task in Progress and Not Complete
+### `IsActive`
+> Returns true when Task in Progress and Not Complete 
 ```cpp
-UFUNCTION(BlueprintCallable, Category="FlowPilotTask")
 bool IsActive() const;
+
 ```
 
-#### `IsComplete` 
-Returns true when Task is Complete
+### `IsComplete`
+> Returns true when Task is Complete 
 ```cpp
-UFUNCTION(BlueprintCallable, Category="FlowPilotTask")
 bool IsComplete() const;
+
 ```
 
-#### `ForEachActor` 
-Executes 'InFunc' to all Actors found from 'ActorReference'
+### `ForEachActor`
+> Executes 'InFunc' to all Actors found from 'ActorReference' 
 ```cpp
 bool ForEachActor(const FFlowActorReference& ActorReference, TFunctionRef<bool(AActor* const /*Actor*/)> InFunc) const;
+
 ```
 
-#### `ForEachConstActor` 
-Executes 'InFunc' to all const Actors found from 'ActorReference'
-Const means the function should not modify 'Actors'
+### `ForEachConstActor`
+> Executes 'InFunc' to all const Actors found from 'ActorReference' \
+> Const means the function should not modify 'Actors' 
 ```cpp
 bool ForEachConstActor(const FFlowActorReference& ActorReference, TFunctionRef<bool(const AActor* const /*Actor*/)> InFunc) const;
+
 ```
 
-#### `GetFlowPilotComponent` 
-Returns FlowPilotComponent
+### `GetFlowPilotComponent`
+> Returns FlowPilotComponent 
 ```cpp
-UFUNCTION(BlueprintCallable, Category = "FlowPilotTask")
 UFlowPilotComponent* GetFlowPilotComponent() const;
+
 ```
 
-#### `GetFlowPilotOwnerActor` 
-Returns FlowPilotComponent Owner Actor
+### `GetFlowPilotOwnerActor`
+> Returns FlowPilotComponent Owner Actor 
 ```cpp
-UFUNCTION(BlueprintCallable, Category = "FlowPilotTask")
 AActor* GetFlowPilotOwnerActor() const;
+
 ```
 
-#### `GetWorldContext` 
-Returns FlowPilot Actor World
+### `GetWorldContext`
+> Returns FlowPilot Actor World 
 ```cpp
-UFUNCTION(BlueprintCallable, Category = "FlowPilotTask")
 UWorld* GetWorldContext() const;
-```
 
-#### `GetWorld` 
-
-```cpp
-virtual UWorld* GetWorld() const override;
 ```
 

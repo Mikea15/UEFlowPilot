@@ -4,64 +4,79 @@ description: Reference page for UFlowPilotSettings class
 ---
 
 ## Class Info
-__Parent Class:__ `UDeveloperSettings`
+- __Parent Class:__ `UDeveloperSettings`
+- __FileName:__ `FlowPilotSettings.h`
+## Properties
 
-### Properties
-
-| Property | Description |
-| :--- | :--- |
-| `uint8 bPrefetchActorsOnSetup : 1;` | Will prefetch Actors on Setup |
-| `uint8 bShowDescriptionOnActiveTasks : 1;` | Only show Description On Active Tasks |
-| `uint8 bShowFutureChildTasksWhenParentActive : 1;` | Will display future Tasks only when the Parent Task is Active. |
-| `int32 ShowQueuedTasksCount = 3;` | Show X Queued Tasks |
-| `int ShowCompletedTasksCount = 3;` | Show X Completed Tasks |
-| `float DebugFontScale = 1.0f;` | Scale Debug UI |
-| `uint8 bDrawRoot : 1;` | If True, Draws Root Node |
-| `float Indentation = 5.0f;` | Hierarchy Indentation |
-| `float TileVerticalMargin = 2.0f;` | Tile with background Margin |
-| `FLinearColor TextColor = FLinearColor::White;` | Task Title Color |
-
-### Functions
-
-#### `FVector2D` 
-Text padding
 ```cpp
+// Will prefetch Actors on Setup 
+UPROPERTY(EditAnywhere, Config, Category="Caching")
+uint8 bPrefetchActorsOnSetup : 1;
+
+// Only show Description On Active Tasks 
+UPROPERTY(EditAnywhere, Config, Category="Debug")
+uint8 bShowDescriptionOnActiveTasks : 1;
+
+// Will display future Tasks only when the Parent Task is Active. 
+UPROPERTY(EditAnywhere, Config, Category="Debug")
+uint8 bShowFutureChildTasksWhenParentActive : 1;
+
+// Show X Queued Tasks 
+UPROPERTY(EditAnywhere, Config, Category="Debug", meta=(ClampMin=0))
+int32 ShowQueuedTasksCount = 3;
+
+// Show X Completed Tasks 
+UPROPERTY(EditAnywhere, Config, Category="Debug", meta=(ClampMin=0))
+int ShowCompletedTasksCount = 3;
+
+// Scale Debug UI 
+UPROPERTY(EditAnywhere, Config, Category="Debug", meta=(UIMin=0.5f, UIMax=2.0f))
+float DebugFontScale = 1.0f;
+
+// If True, Draws Root Node 
+UPROPERTY(EditAnywhere, Config, Category="Debug")
+uint8 bDrawRoot : 1;
+
+// Hierarchy Indentation 
+UPROPERTY(EditAnywhere, Category="Debug|Display Preferences")
+float Indentation = 5.0f;
+
+// Text padding 
+UPROPERTY(EditAnywhere, Category="Debug|Display Preferences")
 FVector2D TextPadding = FVector2D(10.0f, 5.0f);
-```
 
-#### `FLinearColor` 
-Running Task Color
-```cpp
+// Tile with background Margin 
+UPROPERTY(EditAnywhere, Category="Debug|Display Preferences")
+float TileVerticalMargin = 2.0f;
+
+// Running Task Color 
+UPROPERTY(EditAnywhere, Category="Debug|Display Preferences")
 FLinearColor TaskRunningColor = FLinearColor(0.9f, 0.2f, 0.05f, 0.45f);
-```
 
-#### `FLinearColor` 
-Task Completed Color
-```cpp
+// Task Completed Color 
+UPROPERTY(EditAnywhere, Category="Debug|Display Preferences")
 FLinearColor TaskCompletedColor = FLinearColor(0.0f, 0.25f, 0.0f, 0.45f);
-```
 
-#### `FLinearColor` 
-Task in Queue Color
-```cpp
+// Task in Queue Color 
+UPROPERTY(EditAnywhere, Category="Debug|Display Preferences")
 FLinearColor TaskQueuedColor = FLinearColor(0.02f, 0.03f, 0.09f, 0.45f);
-```
 
-#### `FLinearColor` 
-Text Background Color
-```cpp
+// Task Title Color 
+UPROPERTY(EditAnywhere, Category="Debug|Display Preferences")
+FLinearColor TextColor = FLinearColor::White;
+
+// Text Background Color 
+UPROPERTY(EditAnywhere, Category="Debug|Display Preferences")
 FLinearColor DefaultBackgroundColor = FLinearColor(0, 0, 0, 0.45f);
-```
 
-#### `FLinearColor` 
-Valid Color
-```cpp
+// Valid Color 
+UPROPERTY(EditAnywhere, Category="Debug|Display Preferences")
 FLinearColor ValidColor = FLinearColor(0.0f, 0.25f, 0.02f, 0.45f);
-```
 
-#### `FLinearColor` 
-Invalid Color
-```cpp
+// Invalid Color 
+UPROPERTY(EditAnywhere, Category="Debug|Display Preferences")
 FLinearColor InvalidColor = FLinearColor(0.25f, 0.02f, 0.02f, 0.45f);
+
 ```
+## Functions
 

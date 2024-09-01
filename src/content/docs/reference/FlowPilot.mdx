@@ -13,58 +13,33 @@ import Ref from '../../../components/Ref.astro'
 
 
 ## Class Info
-__Parent Class:__ `UDataAsset`
-
-### Properties
-
-| Property | Description |
-| :--- | :--- |
-| `FName FlowName = "Flow Name";` | Flow Id |
-| `TArray<TObjectPtr<UFlowPilotTask>> MainFlow_DEPRECATED;` | Main Flow sequence. |
-| `UFPTask_Sequence* Root;` |  |
-| `uint32 LastCompiledEditorDataHash = 0;` |  |
-
-### Functions
-
-#### `UFlowPilot` 
+- __Parent Class:__ `UDataAsset`
+- __FileName:__ `FlowPilot.h`
+## Properties
 
 ```cpp
-UFlowPilot();
-```
+// Flow Id 
+UPROPERTY(EditDefaultsOnly, Category = "FlowPilot")
+FName FlowName = "Flow Name";
 
-#### `PostLoad` 
-UObject
+// Main Flow sequence. 
+UPROPERTY(meta=(DeprecatedProperty))
+TArray<TObjectPtr<UFlowPilotTask>> MainFlow_DEPRECATED;
+
+```
+## Functions
+
+### `PostLoad`
+> UObject 
 ```cpp
 virtual void PostLoad() override;
+
 ```
 
-#### `Serialize` 
-
-```cpp
-virtual void Serialize(FArchive& Ar) override;
-```
-
-#### `PostRename` 
-~UObject
+### `PostRename`
+> ~UObject 
 ```cpp
 virtual void PostRename(UObject* OldOuter, const FName OldName) override;
-```
 
-#### `PostDuplicate` 
-
-```cpp
-virtual void PostDuplicate(bool bDuplicateForPIE) override;
-```
-
-#### `GetTasksMutable` 
-
-```cpp
-TArray<TObjectPtr<UFlowPilotTask>>& GetTasksMutable() const;
-```
-
-#### `GetTasks` 
-
-```cpp
-const TArray<TObjectPtr<UFlowPilotTask>>& GetTasks() const;
 ```
 

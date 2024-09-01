@@ -128,148 +128,147 @@ FString GetFlowPilotName() const;
 
 
 ## Class Info
-__Parent Class:__ `UActorComponent`
-
-### Properties
-
-| Property | Description |
-| :--- | :--- |
-| `uint8 bAutoStartOnBeginPlay : 1;` | Automatically starts FlowPilot on BeginPlay |
-| `TObjectPtr<UFlowPilot> FlowPilotAsset;` | FlowPilot Asset. |
-| `EFlowMode ExecutionMode = EFlowMode::RunOnce;` | Overrides FlowPilotAsset with ExecutionMode |
-| `float RetryDelay = 0.0f;` | Execution Mode retry delay |
-| `UFlowPilot* FlowPilotInstance = nullptr;` | FlowPilotLifetimeActors are spawned from FlowPilot, and will auto destroy when Ending |
-
-### Functions
-
-#### `UFlowPilotComponent` 
+- __FileName:__ `FlowPilotComponent.h`
+## Properties
 
 ```cpp
-UFlowPilotComponent(const FObjectInitializer& ObjectInitializer);
+// ~FComponentVisualizer 
+
+FFlowStateChangeSignature OnFlowStateChanged;
+
+// Automatically starts FlowPilot on BeginPlay 
+UPROPERTY(EditAnywhere, Category=FlowPilot)
+uint8 bAutoStartOnBeginPlay : 1;
+
+// FlowPilot Asset. 
+UPROPERTY(EditAnywhere, Category=FlowPilot)
+TObjectPtr<UFlowPilot> FlowPilotAsset;
+
+// Overrides FlowPilotAsset with ExecutionMode 
+UPROPERTY(EditAnywhere, Category=FlowPilot)
+EFlowMode ExecutionMode = EFlowMode::RunOnce;
+
+// Execution Mode retry delay 
+UPROPERTY(EditAnywhere, Category=FlowPilot, meta=(ClampMin="0.0", EditCondition="ExecutionMode != EFlowMode::RunOnce"))
+float RetryDelay = 0.0f;
+
+// FlowPilotLifetimeActors are spawned from FlowPilot, and will auto destroy when Ending 
+
+TArray<TWeakObjectPtr<AActor>> FlowPilotLifetimeActors;
+
 ```
+## Functions
 
-#### `InitializeComponent` 
-
+### `SetFlowPilotAsset`
+> Sets FlowPilot data asset 
 ```cpp
-virtual void InitializeComponent() override;
-```
-
-#### `UninitializeComponent` 
-
-```cpp
-virtual void UninitializeComponent() override;
-```
-
-#### `BeginPlay` 
-
-```cpp
-virtual void BeginPlay() override;
-```
-
-#### `EndPlay` 
-
-```cpp
-virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
-```
-
-#### `TickComponent` 
-
-```cpp
-virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-```
-
-#### `SetFlowPilotAsset` 
-Sets FlowPilot data asset
-```cpp
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
 bool SetFlowPilotAsset(UFlowPilot* InFlowPilotAsset);
+
 ```
 
-#### `StartFlow` 
-Start Current FlowData
+### `StartFlow`
+> Start Current FlowData 
 ```cpp
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
 void StartFlow();
+
 ```
 
-#### `StopFlow` 
-Stops FlowPilot
+### `StopFlow`
+> Stops FlowPilot 
 ```cpp
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
 void StopFlow(EFPStopType StopType = EFPStopType::CancelExecution);
+
 ```
 
-#### `PauseFlow` 
-Pauses FlowPilot. Execution must have been started first
+### `PauseFlow`
+> Pauses FlowPilot. Execution must have been started first 
 ```cpp
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
 void PauseFlow();
+
 ```
 
-#### `UnPauseFlow` 
-UnPauses FlowPilot, if Paused.
+### `UnPauseFlow`
+> UnPauses FlowPilot, if Paused. 
 ```cpp
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
 void UnPauseFlow();
+
 ```
 
-#### `FindSingleActor` 
-Returns true if FlowPilot is Paused
-Returns true is setup is valid
-Returns FlowPilot state
-Returns true if FlowPilot is in Progress
-Finds single actor reference
+### `IsPaused`
+> Returns true if FlowPilot is Paused 
 ```cpp
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
+bool IsPaused() const { return FlowState == EFlowState::Paused; }
+
+```
+
+### `IsDataSetup`
+> Returns true is setup is valid 
+```cpp
+bool IsDataSetup() const { return FlowPilotAsset != nullptr; }
+
+```
+
+### `GetRunState`
+> Returns FlowPilot state 
+```cpp
+EFlowState GetRunState() const { return FlowState; }
+
+```
+
+### `IsRunning`
+> Returns true if FlowPilot is in Progress 
+```cpp
+bool IsRunning() const { return FlowState == EFlowState::InProgress; }
+
+```
+
+### `FindSingleActor`
+> Finds single actor reference 
+```cpp
 AActor* FindSingleActor(const FFlowActorReference& ActorReference);
+
 ```
 
-#### `FindActors` 
-Finds all actors with reference (usually external tags on multiple actors)
+### `FindActors`
+> Finds all actors with reference (usually external tags on multiple actors) 
 ```cpp
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
 TArray<AActor*> FindActors(const FFlowActorReference& ActorReference);
+
 ```
 
-#### `FindSingleActorByTag` 
-Finds and Caches Unique Actor via GameplayTag
+### `FindSingleActorByTag`
+> Finds and Caches Unique Actor via GameplayTag 
 ```cpp
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
 AActor* FindSingleActorByTag(const FGameplayTag& Tag);
+
 ```
 
-#### `FindActorsByTag` 
-Find All Actors by Tag
+### `FindActorsByTag`
+> Find All Actors by Tag 
 ```cpp
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
 TArray<AActor*> FindActorsByTag(const FGameplayTag& Tag);
+
 ```
 
-#### `BindToFlowPilotLifetime` 
-Binds Lifetime of Actor to FlowPilot. Will destroy when FlowPilot Completes
+### `BindToFlowPilotLifetime`
+> Binds Lifetime of Actor to FlowPilot. Will destroy when FlowPilot Completes 
 ```cpp
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
 void BindToFlowPilotLifetime(AActor* InActor);
+
 ```
 
-#### `PrefetchActorReference` 
-Will prefect Actor Reference if Referenced via External Tag.
+### `PrefetchActorReference`
+> Will prefect Actor Reference if Referenced via External Tag. 
 ```cpp
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
 void PrefetchActorReference(const FFlowActorReference& ActorReference);
+
 ```
 
-#### `CacheTaggedActor` 
-
+### `DrawVisualization`
+> FComponentVisualizer \
+> Draw visualization for the supplied component 
 ```cpp
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-void CacheTaggedActor(AActor* InActor, const FGameplayTag& InGameplayTag);
-```
+virtual void DrawVisualization(const UActorComponent* Component, const FSceneView* View, FPrimitiveDrawInterface* PDI) override;
 
-#### `GetFlowPilotName` 
-
-```cpp
-UFUNCTION(BlueprintCallable, Category="FlowPilot")
-FString GetFlowPilotName() const;
 ```
 

@@ -4,27 +4,15 @@ description: Reference page for UFPTask_PlaySound class
 ---
 
 ## Class Info
-__Parent Class:__ `UFlowPilotTask`
-
-### Properties
-
-| Property | Description |
-| :--- | :--- |
-| `FFlowActorReference ActorReference;` | Where to play sound from. |
-| `TObjectPtr<USoundCue> SoundToPlay;` |  |
-| `TObjectPtr<USoundWave> SoundWaveToPlay;` |  |
-
-### Functions
-
-#### `UFPTask_PlaySound` 
+- __Parent Class:__ `UFlowPilotTask`
+- __FileName:__ `FPTask_PlaySound.h`
+## Properties
 
 ```cpp
-UFPTask_PlaySound();
-```
+// Where to play sound from. 
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+FFlowActorReference ActorReference;
 
-#### `Enter` 
-
-```cpp
-virtual bool Enter() override;
 ```
+## Functions
 
