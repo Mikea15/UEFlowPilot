@@ -1,0 +1,47 @@
+---
+title: UFPTask_Selector
+description: Reference page for UFPTask_Selector class
+---
+import Ref from '../../../components/Ref.astro'
+import LinkRef from '../../../components/LinkRef.astro'
+
+import { Image } from 'astro:assets';
+import schema from '../../../assets/ufptask_selector.png';
+
+<Ref c="UFPTask_Selector" p="UFlowPilotTask" />
+
+### Description
+
+<Image src={schema} alt="UFPTask_Selector Schema" />
+
+`UFPTask_Selector` is a Task can contain many other tasks. Its purpose is to run each task sequentially.
+The schema above explains how it should work.
+
+`UFPTask_Selector` will succeed at the first task that returns success.
+
+If one task fails, `UFPTask_Selector` will try running the next task after the next, until one of them succeeds.
+
+If no task succeeded, then `UFPTask_Selector` will return failure.
+
+## Class Info
+__Parent Class:__ `UFPTaskRunner`
+
+### Properties
+
+| Property | Description |
+| :--- | :--- |
+
+### Functions
+
+#### `UFPTask_Selector` 
+
+```cpp
+UFPTask_Selector();
+```
+
+#### `Tick` 
+
+```cpp
+virtual EFPTaskResult Tick(float DeltaTime) override;
+```
+

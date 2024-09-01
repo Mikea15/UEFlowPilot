@@ -1,0 +1,44 @@
+---
+title: UFPTask_TriggerDistance
+description: Reference page for UFPTask_TriggerDistance class
+---
+
+## Class Info
+__Parent Class:__ `UFlowPilotTask`
+
+### Properties
+
+| Property | Description |
+| :--- | :--- |
+| `FFlowActorReference FirstActorReference;` | First Actor Tag |
+| `ETriggerDistanceOp Operation = ETriggerDistanceOp::LessThan;` | Distance Operation |
+| `EDistanceMethod Method = EDistanceMethod::Distance3D;` |  |
+| `float ThresholdDistance;` | Threshold to check distance against |
+| `FFlowActorReference SecondActorReference;` | Second Actor Tag |
+
+### Functions
+
+#### `UFPTask_TriggerDistance` 
+
+```cpp
+UFPTask_TriggerDistance();
+```
+
+#### `Setup` 
+
+```cpp
+virtual void Setup(FFlowContext* InContext) override;
+```
+
+#### `Enter` 
+
+```cpp
+virtual bool Enter() override;
+```
+
+#### `Tick` 
+
+```cpp
+virtual EFPTaskResult Tick(float DeltaTime) override;
+```
+

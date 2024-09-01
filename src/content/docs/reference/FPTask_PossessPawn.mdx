@@ -1,0 +1,37 @@
+---
+title: UFPTask_PossessPawn
+description: Reference page for UFPTask_PossessPawn class
+---
+
+## Class Info
+__Parent Class:__ `UFlowPilotTask`
+
+### Properties
+
+| Property | Description |
+| :--- | :--- |
+| `FFlowActorReference PawnsToPossess;` | Pawns to Possess |
+| `bool bPossessByPlayer = false;` | Player Possesses only 1 Pawn |
+| `int32 PlayerIndex = 0;` |  |
+| `TSubclassOf<AController> ControllerClass;` | AI Controller Class to Posses Pawns with. |
+
+### Functions
+
+#### `UFPTask_PossessPawn` 
+
+```cpp
+UFPTask_PossessPawn();
+```
+
+#### `Setup` 
+
+```cpp
+virtual void Setup(FFlowContext* InContext) override;
+```
+
+#### `Enter` 
+
+```cpp
+virtual bool Enter() override;
+```
+

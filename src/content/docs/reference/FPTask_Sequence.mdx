@@ -1,9 +1,9 @@
 ---
 title: UFPTask_Sequence
-description: UFPTask_Sequence reference page
+description: Reference page for UFPTask_Sequence class
 ---
-import Ref from '../../../components/Ref.astro' 
-import LinkRef from '../../../components/LinkRef.astro' 
+import Ref from '../../../components/Ref.astro'
+import LinkRef from '../../../components/LinkRef.astro'
 
 import { Image } from 'astro:assets';
 import schema from '../../../assets/ufptask_sequence.png';
@@ -18,7 +18,30 @@ import schema from '../../../assets/ufptask_sequence.png';
 The schema above explains how it should work.
 
 `UFPTask_Sequence` will succeed if all of its tasks ran and all succeeded.
- 
+
 If one of the Tasks fail, `UFPTask_Sequence` will return failure.
 
+
+
+## Class Info
+__Parent Class:__ `UFPTaskRunner`
+
+### Properties
+
+| Property | Description |
+| :--- | :--- |
+
+### Functions
+
+#### `UFPTask_Sequence` 
+
+```cpp
+UFPTask_Sequence();
+```
+
+#### `Tick` 
+
+```cpp
+virtual EFPTaskResult Tick(float DeltaTime) override;
+```
 

@@ -1,0 +1,49 @@
+---
+title: UFPTask_PlayAnimation
+description: Reference page for UFPTask_PlayAnimation class
+---
+
+## Class Info
+__Parent Class:__ `UFlowPilotTask`
+
+### Properties
+
+| Property | Description |
+| :--- | :--- |
+| `FFlowActorReference ActorsToPlayAnimationOn;` |  |
+| `TSoftObjectPtr<UAnimationAsset> AnimationAsset;` |  |
+| `uint8 bLooping : 1;` |  |
+| `uint8 bWaitForAnimationEnd : 1;` |  |
+
+### Functions
+
+#### `UFPTask_PlayAnimation` 
+
+```cpp
+UFPTask_PlayAnimation();
+```
+
+#### `Setup` 
+
+```cpp
+virtual void Setup(FFlowContext* InContext) override;
+```
+
+#### `Enter` 
+
+```cpp
+virtual bool Enter() override;
+```
+
+#### `Tick` 
+
+```cpp
+virtual EFPTaskResult Tick(float DeltaTime) override;
+```
+
+#### `Exit` 
+
+```cpp
+virtual void Exit(EFPTaskResult TaskResult) override;
+```
+

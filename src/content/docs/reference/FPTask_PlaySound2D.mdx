@@ -1,0 +1,36 @@
+---
+title: UFPTask_PlaySound2D
+description: Reference page for UFPTask_PlaySound2D class
+---
+
+## Class Info
+__Parent Class:__ `UFlowPilotTask`
+
+### Properties
+
+| Property | Description |
+| :--- | :--- |
+| `TObjectPtr<USoundCue> SoundToPlay;` |  |
+| `TObjectPtr<USoundWave> SoundWaveToPlay;` |  |
+| `uint8 bIsUISound : 1;` |  |
+| `float VolumeMultiplier = 1.0f;` |  |
+| `float PitchMultiplier = 1.0f;` |  |
+| `float StartTime = 0.0f;` |  |
+| `USoundConcurrency* ConcurrencySettings = nullptr;` |  |
+| `bool bPersistAcrossLevels = false;` |  |
+| `bool bAutoDestroy = true;` |  |
+
+### Functions
+
+#### `UFPTask_PlaySound2D` 
+
+```cpp
+UFPTask_PlaySound2D();
+```
+
+#### `Enter` 
+
+```cpp
+virtual bool Enter() override;
+```
+

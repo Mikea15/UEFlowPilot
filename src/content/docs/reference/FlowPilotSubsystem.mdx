@@ -1,0 +1,63 @@
+---
+title: UFlowPilotSubsystem
+description: Reference page for UFlowPilotSubsystem class
+---
+
+## Class Info
+__Parent Class:__ `UWorldSubsystem`
+
+### Properties
+
+| Property | Description |
+| :--- | :--- |
+
+### Functions
+
+#### `UFlowPilotSubsystem` 
+
+```cpp
+UFlowPilotSubsystem();
+```
+
+#### `Initialize` 
+Begin USubsystem
+```cpp
+virtual void Initialize(FSubsystemCollectionBase& Collection) override;
+```
+
+#### `Deinitialize` 
+
+```cpp
+virtual void Deinitialize() override;
+```
+
+#### `Register` 
+End USubsystem
+```cpp
+void Register(UFlowPilotComponent* FlowPilotComponent);
+```
+
+#### `Unregister` 
+
+```cpp
+void Unregister(UFlowPilotComponent* FlowPilotComponent);
+```
+
+#### `CacheTaggedActor` 
+
+```cpp
+void CacheTaggedActor(const FGameplayTag& LookupTag, AActor* InActor);
+```
+
+#### `FindSingleCachedActor` 
+
+```cpp
+bool FindSingleCachedActor(const FGameplayTag& LookupTag, AActor*& OutActor);
+```
+
+#### `FindCachedActors` 
+
+```cpp
+bool FindCachedActors(const FGameplayTag& LookupTag, TArray<AActor*>& OutActorList);
+```
+

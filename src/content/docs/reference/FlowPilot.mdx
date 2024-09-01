@@ -1,0 +1,70 @@
+---
+title: UFlowPilot
+description: Reference page for UFlowPilot class
+---
+
+import Ref from '../../../components/Ref.astro'
+
+<Ref c="UFlowPilot" p="UObject" />
+
+### Description
+
+`UFlowPilot` is the base data asset for FlowPilot. This is what you'll create, edit and iterate on to create your gameplay sequences.
+
+
+## Class Info
+__Parent Class:__ `UDataAsset`
+
+### Properties
+
+| Property | Description |
+| :--- | :--- |
+| `FName FlowName = "Flow Name";` | Flow Id |
+| `TArray<TObjectPtr<UFlowPilotTask>> MainFlow_DEPRECATED;` | Main Flow sequence. |
+| `UFPTask_Sequence* Root;` |  |
+| `uint32 LastCompiledEditorDataHash = 0;` |  |
+
+### Functions
+
+#### `UFlowPilot` 
+
+```cpp
+UFlowPilot();
+```
+
+#### `PostLoad` 
+UObject
+```cpp
+virtual void PostLoad() override;
+```
+
+#### `Serialize` 
+
+```cpp
+virtual void Serialize(FArchive& Ar) override;
+```
+
+#### `PostRename` 
+~UObject
+```cpp
+virtual void PostRename(UObject* OldOuter, const FName OldName) override;
+```
+
+#### `PostDuplicate` 
+
+```cpp
+virtual void PostDuplicate(bool bDuplicateForPIE) override;
+```
+
+#### `GetTasksMutable` 
+
+```cpp
+TArray<TObjectPtr<UFlowPilotTask>>& GetTasksMutable() const;
+```
+
+#### `GetTasks` 
+
+```cpp
+const TArray<TObjectPtr<UFlowPilotTask>>& GetTasks() const;
+```
+

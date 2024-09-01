@@ -1,0 +1,29 @@
+---
+title: UFPTask_UnloadStreamedLevel
+description: Reference page for UFPTask_UnloadStreamedLevel class
+---
+
+## Class Info
+__Parent Class:__ `UFlowPilotTask`
+
+### Properties
+
+| Property | Description |
+| :--- | :--- |
+| `TSoftObjectPtr<UWorld> Level;` | Streamed Level to unload |
+| `bool bBlockOnUnload = false;` | Blocks Unload thread |
+
+### Functions
+
+#### `UFPTask_UnloadStreamedLevel` 
+
+```cpp
+UFPTask_UnloadStreamedLevel();
+```
+
+#### `Enter` 
+
+```cpp
+virtual bool Enter() override;
+```
+

@@ -1,0 +1,67 @@
+---
+title: UFlowPilotSettings
+description: Reference page for UFlowPilotSettings class
+---
+
+## Class Info
+__Parent Class:__ `UDeveloperSettings`
+
+### Properties
+
+| Property | Description |
+| :--- | :--- |
+| `uint8 bPrefetchActorsOnSetup : 1;` | Will prefetch Actors on Setup |
+| `uint8 bShowDescriptionOnActiveTasks : 1;` | Only show Description On Active Tasks |
+| `uint8 bShowFutureChildTasksWhenParentActive : 1;` | Will display future Tasks only when the Parent Task is Active. |
+| `int32 ShowQueuedTasksCount = 3;` | Show X Queued Tasks |
+| `int ShowCompletedTasksCount = 3;` | Show X Completed Tasks |
+| `float DebugFontScale = 1.0f;` | Scale Debug UI |
+| `uint8 bDrawRoot : 1;` | If True, Draws Root Node |
+| `float Indentation = 5.0f;` | Hierarchy Indentation |
+| `float TileVerticalMargin = 2.0f;` | Tile with background Margin |
+| `FLinearColor TextColor = FLinearColor::White;` | Task Title Color |
+
+### Functions
+
+#### `FVector2D` 
+Text padding
+```cpp
+FVector2D TextPadding = FVector2D(10.0f, 5.0f);
+```
+
+#### `FLinearColor` 
+Running Task Color
+```cpp
+FLinearColor TaskRunningColor = FLinearColor(0.9f, 0.2f, 0.05f, 0.45f);
+```
+
+#### `FLinearColor` 
+Task Completed Color
+```cpp
+FLinearColor TaskCompletedColor = FLinearColor(0.0f, 0.25f, 0.0f, 0.45f);
+```
+
+#### `FLinearColor` 
+Task in Queue Color
+```cpp
+FLinearColor TaskQueuedColor = FLinearColor(0.02f, 0.03f, 0.09f, 0.45f);
+```
+
+#### `FLinearColor` 
+Text Background Color
+```cpp
+FLinearColor DefaultBackgroundColor = FLinearColor(0, 0, 0, 0.45f);
+```
+
+#### `FLinearColor` 
+Valid Color
+```cpp
+FLinearColor ValidColor = FLinearColor(0.0f, 0.25f, 0.02f, 0.45f);
+```
+
+#### `FLinearColor` 
+Invalid Color
+```cpp
+FLinearColor InvalidColor = FLinearColor(0.25f, 0.02f, 0.02f, 0.45f);
+```
+

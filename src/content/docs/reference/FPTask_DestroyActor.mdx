@@ -1,0 +1,35 @@
+---
+title: UFPTask_DestroyActor
+description: Reference page for UFPTask_DestroyActor class
+---
+
+## Class Info
+__Parent Class:__ `UFlowPilotTask`
+
+### Properties
+
+| Property | Description |
+| :--- | :--- |
+| `FFlowActorReference ActorReference;` | Actors to Destroy |
+| `float Delay = 0.0f;` | Destroy Delay |
+
+### Functions
+
+#### `UFPTask_DestroyActor` 
+
+```cpp
+UFPTask_DestroyActor();
+```
+
+#### `Setup` 
+
+```cpp
+virtual void Setup(FFlowContext* InContext) override;
+```
+
+#### `Enter` 
+
+```cpp
+virtual bool Enter() override;
+```
+

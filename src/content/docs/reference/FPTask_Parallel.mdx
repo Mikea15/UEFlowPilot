@@ -1,0 +1,72 @@
+---
+title: UFPTask_Parallel
+description: Reference page for UFPTask_Parallel class
+---
+import Ref from '../../../components/Ref.astro'
+import LinkRef from '../../../components/LinkRef.astro'
+
+import { Image } from 'astro:assets';
+import schema from '../../../assets/ufptask_parallel.png';
+
+<Ref c="UFPTask_Parallel" p="UFlowPilotTask" />
+
+### Description
+
+<Image src={schema} alt="UFPTask_Parallel Schema" />
+
+`UFPTask_Parallel` is a Task that can run multiple tasks at the same time (in parallel).
+
+There are various _Completion types_ for this task:
+
+- Any Succeed: `UFPTask_Parallel` will succeed at the first Children Task that succeeds. It won't wait for all tasks to be complete. Otherwise fail.
+- All Succeed: `UFPTask_Parallel` will wait for all Child Task's results, and if they all succeeded, then `UFPTask_Parallel` succeeds. Otherwise fail.
+- Any Fail: `UFPTask_Parallel` will succeed at the first Children Task failure. It won't wait for all tasks to be complete. Otherwise fail.
+- All Fail: `UFPTask_Parallel` will wait for all Child Task's results and if they all failed, then `UFPTask_Parallel` succeeds. Otherwise fail.
+
+## Class Info
+__Parent Class:__ `UFlowPilotParent`
+
+### Properties
+
+| Property | Description |
+| :--- | :--- |
+| `EFlowParallelCompletionType DesiredCompletionType = EFlowParallelCompletionType::AllSucceed;` | This defines what makes this Task succeed to continue flow. |
+
+### Functions
+
+#### `UFPTask_Parallel` 
+
+```cpp
+UFPTask_Parallel();
+```
+
+#### `Setup` 
+
+```cpp
+virtual void Setup(FFlowContext* InContext) override;
+```
+
+#### `Enter` 
+
+```cpp
+virtual bool Enter() override;
+```
+
+#### `Tick` 
+
+```cpp
+virtual EFPTaskResult Tick(float DeltaTime) override;
+```
+
+#### `Exit` 
+
+```cpp
+virtual void Exit(EFPTaskResult TaskResult) override;
+```
+
+#### `Reset` 
+
+```cpp
+virtual void Reset() override;
+```
+

@@ -1,0 +1,50 @@
+---
+title: UFPTask_TriggerVolume
+description: Reference page for UFPTask_TriggerVolume class
+---
+
+## Class Info
+__Parent Class:__ `UFlowPilotTask`
+
+### Properties
+
+| Property | Description |
+| :--- | :--- |
+| `ETriggerVolumeEvent TriggerEvent;` | Trigger to Listen to |
+| `FFlowActorReference VolumeReference;` | Volume Reference Actor |
+| `FFlowActorReference ActorReferences;` | Actor References to Interact with Volume
+Will wait for All Actors this reference finds.
+Use unique actor/tag if you want only one resulting actor |
+
+### Functions
+
+#### `UFPTask_TriggerVolume` 
+
+```cpp
+UFPTask_TriggerVolume();
+```
+
+#### `Setup` 
+
+```cpp
+virtual void Setup(FFlowContext* InContext) override;
+```
+
+#### `Enter` 
+
+```cpp
+virtual bool Enter() override;
+```
+
+#### `Tick` 
+
+```cpp
+virtual EFPTaskResult Tick(float DeltaTime) override;
+```
+
+#### `Exit` 
+
+```cpp
+virtual void Exit(EFPTaskResult TaskResult) override;
+```
+

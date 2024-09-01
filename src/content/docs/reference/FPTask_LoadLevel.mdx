@@ -1,0 +1,33 @@
+---
+title: UFPTask_LoadLevel
+description: Reference page for UFPTask_LoadLevel class
+---
+
+## Class Info
+__Parent Class:__ `UFlowPilotTask`
+
+### Properties
+
+| Property | Description |
+| :--- | :--- |
+| `TSoftObjectPtr<UWorld> Level;` |  |
+| `uint8 bStreamLevel : 1;` |  |
+| `uint8 bBlockOnLoad : 1;` |  |
+| `uint8 bMakeVisibleAfterLoad : 1;` |  |
+| `uint8 bAbsolute : 1;` |  |
+| `FString OpenOptions;` |  |
+
+### Functions
+
+#### `UFPTask_LoadLevel` 
+
+```cpp
+UFPTask_LoadLevel();
+```
+
+#### `Enter` 
+
+```cpp
+virtual bool Enter() override;
+```
+

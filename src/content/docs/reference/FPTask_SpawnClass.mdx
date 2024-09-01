@@ -1,0 +1,39 @@
+---
+title: UFPTask_SpawnClass
+description: Reference page for UFPTask_SpawnClass class
+---
+
+## Class Info
+__Parent Class:__ `UFlowPilotTask`
+
+### Properties
+
+| Property | Description |
+| :--- | :--- |
+| `EFlowActorSpawnLifetime ActorSpawnLifetime = EFlowActorSpawnLifetime::FlowPilot;` | SpawnLifetime dictates when we Destroy this Actor, (or leave it alive forever) |
+| `TObjectPtr<UClass> SpawnClass;` | UClass to Spawn |
+| `FFlowActorReference SpawnLocationReference;` | Spawn Location Reference |
+| `FVector SpawnOffset = FVector::ZeroVector;` | Spawn Offset |
+| `FGameplayTagContainer TagsToAddActor;` | GameplayTags to add Spawned Actor |
+| `ESpawnActorCollisionHandlingMethod SpawnCollisionMethods = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;` | Spawn Collision Method |
+
+### Functions
+
+#### `UFPTask_SpawnClass` 
+
+```cpp
+UFPTask_SpawnClass();
+```
+
+#### `Setup` 
+
+```cpp
+virtual void Setup(FFlowContext* InContext) override;
+```
+
+#### `Enter` 
+
+```cpp
+virtual bool Enter() override;
+```
+

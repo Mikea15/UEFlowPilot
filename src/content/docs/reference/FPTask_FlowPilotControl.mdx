@@ -1,0 +1,45 @@
+---
+title: UFPTask_FlowPilotControl
+description: Reference page for UFPTask_FlowPilotControl class
+---
+
+## Class Info
+__Parent Class:__ `UFlowPilotTask`
+
+### Properties
+
+| Property | Description |
+| :--- | :--- |
+| `FFlowActorReference ActorReference;` | Flow Actor reference to an Actors that have FlowPilotComponents |
+| `EFlowPilotControlType ControlType = EFlowPilotControlType::StartFlow;` | Flow Control Type |
+| `EFPStopType StopType = EFPStopType::CancelExecution;` | Flow Stop Type |
+| `EFlowControlSuccessCondition SuccessCondition = EFlowControlSuccessCondition::Instant;` | When starting a new FlowPilot, what's this Task's success condition?
+Essentially, we can Succeed instantly, or wait for InProgress or Stopped/Complete execution of the
+Controlled FlowPilot Component we're controlling. |
+
+### Functions
+
+#### `UFPTask_FlowPilotControl` 
+
+```cpp
+UFPTask_FlowPilotControl();
+```
+
+#### `Setup` 
+
+```cpp
+virtual void Setup(FFlowContext* InContext) override;
+```
+
+#### `Enter` 
+
+```cpp
+virtual bool Enter() override;
+```
+
+#### `Tick` 
+
+```cpp
+virtual EFPTaskResult Tick(float DeltaTime) override;
+```
+
