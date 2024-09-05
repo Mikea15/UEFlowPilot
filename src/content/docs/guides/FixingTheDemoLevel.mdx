@@ -1,0 +1,50 @@
+---
+title: Fixing The Demo Level
+description: Guides you through fixing the demo level so you can play it and understand FlowPilot
+---
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+import LinkRef from '../../../components/LinkRef.astro'; 
+
+import { Image } from 'astro:assets';
+import guide_img01 from '../../../assets/guide_demolevel/guide_demo_01.png';
+import guide_img02 from '../../../assets/guide_demolevel/guide_demo_02.png';
+import guide_img03 from '../../../assets/guide_demolevel/guide_demo_03.png';
+import guide_img04 from '../../../assets/guide_demolevel/guide_demo_04.png';
+import guide_img05 from '../../../assets/guide_demolevel/guide_demo_05.png';
+
+What a bummer! FlowPilot's own Demo map doesn't even work out of the box! 
+
+I know, I know, let's fix that together, I promise it's on purpose.
+
+## Less Talking More Fixing
+
+<Steps>
+1. Open `FlowPilot_DemoLevel` if you haven't already
+    <Image src={guide_img01} alt="GuideMap" />
+
+2. Find `FlowPilotActor` in the Outliner, then `FlowPilot Component` and finally `Flow Pilot Asset`
+    <Image src={guide_img02} alt="GuideProperties" />
+
+3. Open `FP_DemoLevel_Main` and find and select `Spawn Player` Task.
+    <Image src={guide_img03} alt="GuideSpawnPlayer" />
+
+4. In the Task Details panel, select your own Blueprint Character in `Spawn Class` property.
+
+    <Aside type="note" title="Tags to Add Actor">Notice we add a Tag `Player.Character` to our spawned Actor/Player. This is to allow fast search when finding it in another task in the future. If you don't have this tag, you can create any you like (as long as its unique!).</Aside>
+
+5. In Tree View Panel, Select `Posses Player`, and double check that `Pawn to Posses` is set to `Runtime` and that the tag matches the tag you setup from Step 4.
+    <Image src={guide_img04} alt="GuidePossesPlayer" />
+
+6. Now we can save the asset, and edit our GameMode so we don't automatically spawn a default Pawn from it. We can just select `None` here. We handle it in FlowPilot.
+    <Image src={guide_img05} alt="GuideGameMode" />
+
+7. Press Play! You are done!
+</Steps>
+
+## Wrapping Up
+
+Hope you liked this small introduction to what FlowPilot can do.
+Enjoy!
+
+
