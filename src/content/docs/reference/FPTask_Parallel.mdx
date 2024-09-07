@@ -6,31 +6,22 @@ description: Reference page for FPTask_Parallel.h
 ## File Info
 
 __FileName:__ `FPTask_Parallel.h`
-- __Class List:__ 
-[ [`UFPTask_Parallel`](#ufptask_parallel) ]
 - __Enum List:__ 
 [ [`EFlowParallelCompletionType`](#eflowparallelcompletiontype) ]
+- __Class List:__ 
+[ [`UFPTask_Parallel`](#ufptask_parallel) ]
 
 
-## `EFlowParallelCompletionType` 
+### `EFlowParallelCompletionType` 
 
 
-### Properties
+| Value | Description | 
+| :-- | :-- | 
+| `AnySucceed` | Succeed when one child Succeeds | 
+| `AllSucceed` | Succeed when all child Succeed | 
+| `AnyFail` | Succeed when one child Fails | 
+| `AllFail` | Succeed when all child Fail | 
 
-```cpp
-// Succeed when one child Succeeds 
-AnySucceed,
-
-// Succeed when all child Succeed 
-AllSucceed,
-
-// Succeed when one child Fails 
-AnyFail,
-
-// Succeed when all child Fail 
-AllFail
-
-```
 
 
 ## `UFPTask_Parallel` 
@@ -39,9 +30,9 @@ AllFail
 __Parent Classes:__
 [ `UFlowPilotParent` ]
 
- \
-Parallel Task \
-- Run multiple Tasks in the same tick function. \
+ 
+Parallel Task 
+- Run multiple Tasks in the same tick function. 
 - They are run one by one, so not 'really' parallel. 
 
 ### Properties

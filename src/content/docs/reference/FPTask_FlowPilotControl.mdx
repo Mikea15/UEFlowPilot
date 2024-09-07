@@ -6,28 +6,32 @@ description: Reference page for FPTask_FlowPilotControl.h
 ## File Info
 
 __FileName:__ `FPTask_FlowPilotControl.h`
+- __Enum List:__ 
+[ [`EFlowPilotControlType`](#eflowpilotcontroltype) | [`EFlowControlSuccessCondition`](#eflowcontrolsuccesscondition) ]
 - __Class List:__ 
 [ [`UFPTask_FlowPilotControl`](#ufptask_flowpilotcontrol) ]
-- __Enum List:__ 
-[ [`EFlowControlSuccessCondition`](#eflowcontrolsuccesscondition) ]
 
 
-## `EFlowControlSuccessCondition` 
+### `EFlowPilotControlType` 
 
 
-### Properties
+| Value | Description | 
+| :-- | :-- | 
+| `StartFlow	UMETA(DisplayName="Start / Resume Flow")` | StartFlow	UMETA(DisplayName="Start / Resume Flow") | 
+| `PauseFlow	UMETA(DisplayName="Pause Flow")` | PauseFlow	UMETA(DisplayName="Pause Flow") | 
+| `StopFlow	UMETA(DisplayName="Stops Flow")` | StopFlow	UMETA(DisplayName="Stops Flow") | 
 
-```cpp
-// Will succeed instantly after Request 
-Instant,
 
-// Will succeed when Flow has Started and is in Progress 
-WaitForFlowStart,
 
-// Will succeed when Flow has Started, and is Complete 
-WaitForFlowComplete
+### `EFlowControlSuccessCondition` 
 
-```
+
+| Value | Description | 
+| :-- | :-- | 
+| `Instant` | Will succeed instantly after Request | 
+| `WaitForFlowStart` | Will succeed when Flow has Started and is in Progress | 
+| `WaitForFlowComplete` | Will succeed when Flow has Started, and is Complete | 
+
 
 
 ## `UFPTask_FlowPilotControl` 
@@ -36,8 +40,8 @@ WaitForFlowComplete
 __Parent Classes:__
 [ `UFlowPilotTask` ]
 
- \
-FlowPilot Control \
+ 
+FlowPilot Control 
 - Starts, Pauses, Stops a FlowPilot Component's execution 
 
 ### Properties

@@ -6,169 +6,99 @@ description: Reference page for FlowTypes.h
 ## File Info
 
 __FileName:__ `FlowTypes.h`
-- __Struct List:__ 
-[ [`FFlowContext`](#fflowcontext) ]
 - __Enum List:__ 
 [ [`EFPInternalTaskState`](#efpinternaltaskstate) | [`EFPStopType`](#efpstoptype) | [`EFPTaskResult`](#efptaskresult) | [`EFlowState`](#eflowstate) | [`EFlowActorScope`](#eflowactorscope) | [`EFlowActorSpawnLifetime`](#eflowactorspawnlifetime) | [`EFlowMode`](#eflowmode) ]
+- __Struct List:__ 
+[ [`FFlowContext`](#fflowcontext) ]
 
 
-## `EFPInternalTaskState` 
+### `EFPInternalTaskState` 
 
 
-### Properties
+| Value | Description | 
+| :-- | :-- | 
+| `Invalid = 0` | Not started yet | 
+| `Setup` | Setup done | 
+| `Started` | Started Execution | 
+| `Ticking` | Is in Progress | 
+| `Completed` | ----, > Ticking = Completed, Completed | 
 
-```cpp
-// Not started yet 
-Invalid = 0,
 
-// Setup done 
-Setup,
 
-// Started Execution 
-Started,
+### `EFPStopType` 
 
-// Is in Progress 
-Ticking,
 
-// ---- 
-// > Ticking = Completed 
-// Completed 
-Completed
+| Value | Description | 
+| :-- | :-- | 
+| `CancelExecution` | Cancel Execution will call Exit with Failure state on Running Tasks | 
+| `StopNow` | Stop Now will just stop execution. Exit won't be called. | 
 
-```
 
 
-## `EFPStopType` 
+### `EFPTaskResult` 
 
 
-### Properties
+| Value | Description | 
+| :-- | :-- | 
+| `None` | Not started yet | 
+| `InProgress` | In progress and Ticking | 
+| `Succeeded` | Complete with Success Result | 
+| `Failed` | Complete with Fail Result | 
+| `Error` | Not Complete. Return Error | 
 
-```cpp
-// Cancel Execution will call Exit with Failure state on Running Tasks 
-CancelExecution,
 
-// Stop Now will just stop execution. Exit won't be called. 
-StopNow
 
-```
+### `EFlowState` 
 
 
-## `EFPTaskResult` 
+| Value | Description | 
+| :-- | :-- | 
+| `None` | Not started yet | 
+| `InProgress` | FlowPilot Running | 
+| `Paused` | FlowPilot has started but is paused | 
+| `Succeeded` | FlowPilot Done with Success | 
+| `Failed` | FlowPilot Done with fail | 
+| `Error` | FlowPilot not Done, with Error | 
 
 
-### Properties
 
-```cpp
-// Not started yet 
-None,
+### `EFlowActorScope` 
 
-// In progress and Ticking 
-InProgress,
 
-// Complete with Success Result 
-Succeeded,
+| Value | Description | 
+| :-- | :-- | 
+| `Self` | Actor or Component is in Own Actor | 
+| `InLevel` | Actor that live in the world | 
+| `Runtime` | Actors spawned at Runtime | 
 
-// Complete with Fail Result 
-Failed,
 
-// Not Complete. Return Error 
-Error
 
-```
+### `EFlowActorSpawnLifetime` 
 
 
-## `EFlowState` 
+| Value | Description | 
+| :-- | :-- | 
+| `FlowPilot` | Spawned actor will live during FlowPilot Execution, will despawn automatically when Flow Ends. | 
+| `Persistent` | or internal scope, example, when we add another FlowAsset, or a Parallel,, sequence or selector., Spawned actors will stay on the level event when Flow Stops. | 
 
 
-### Properties
 
-```cpp
-// Not started yet 
-None,
+### `EFlowMode` 
 
-// FlowPilot Running 
-InProgress,
 
-// FlowPilot has started but is paused 
-Paused,
+| Value | Description | 
+| :-- | :-- | 
+| `RunOnce` | Executes Flow Once. | 
+| `RunUntilSucceed` | Executes until Succeeds Once | 
+| `RunUntilFail` | Executes until Fails Once | 
+| `RunWhileSucceed` | Executes in Loop while Succeeds | 
+| `RunWhileFail` | Executes in Loop while Fails | 
+| `RunNonStop` | Run non stop. | 
 
-// FlowPilot Done with Success 
-Succeeded,
-
-// FlowPilot Done with fail 
-Failed,
-
-// FlowPilot not Done, with Error 
-Error
-
-```
-
-
-## `EFlowActorScope` 
-
-
-### Properties
-
-```cpp
-// Actor or Component is in Own Actor 
-Self,
-
-// Actor that live in the world 
-InLevel,
-
-// Actors spawned at Runtime 
-Runtime,
-
-```
-
-
-## `EFlowActorSpawnLifetime` 
-
-
-### Properties
-
-```cpp
-// Spawned actor will live during FlowPilot Execution, will despawn automatically when Flow Ends. 
-FlowPilot,
-
-// TODO (MA): Add a Checkpoint lifetime? 
-// or internal scope, example, when we add another FlowAsset, or a Parallel, 
-// sequence or selector. 
-// Spawned actors will stay on the level event when Flow Stops. 
-Persistent
-
-```
-
-
-## `EFlowMode` 
-
-
-### Properties
-
-```cpp
-// Executes Flow Once. 
-RunOnce,
-
-// Executes until Succeeds Once 
-RunUntilSucceed,
-
-// Executes until Fails Once 
-RunUntilFail,
-
-// Executes in Loop while Succeeds 
-RunWhileSucceed,
-
-// Executes in Loop while Fails 
-RunWhileFail,
-
-// Run non stop. 
-RunNonStop
-
-```
 
 
 ## `FFlowContext` 
 
 
- \
+ 
 Flow Context 

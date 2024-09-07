@@ -16,23 +16,30 @@ __FileName:__ `FPTask_PossessPawn.h`
 __Parent Classes:__
 [ `UFlowPilotTask` ]
 
- \
-Possess Pawn \
-- Spawns a Controller and Possesses a Pawn \
-- Can Posses multiple Pawns at the same time 
+ 
+Posses Pawn: 
+- Spawns a Controller and Possesses a Pawn 
+- Can Possess multiple Pawns at the same time using a shared GameplayTag 🏷️ 
 
 ### Properties
 
 ```cpp
 // Pawns to Possess 
+// if possessed by Player, will only search for 1 Pawn. 
+// if possessed by AI Controller, will search for multiple Pawns. 
 UPROPERTY(EditAnywhere, Category="FlowPilot")
 FFlowActorReference PawnsToPossess;
 
-// Player Possesses only 1 Pawn 
+// If true, the Player will posses the Pawn 
 UPROPERTY(EditAnywhere, Category="FlowPilot")
 bool bPossessByPlayer = false;
 
-// AI Controller Class to Posses Pawns with. 
+// Player Controller Index, in single player games this is usually 0. 
+// for more complex cases, this could be parameterized 
+UPROPERTY(EditAnywhere, Category="FlowPilot", meta=(EditCondition="bPossessByPlayer", EditConditionHides))
+int32 PlayerIndex = 0;
+
+// AI Controller class to posses Pawn with 
 UPROPERTY(EditAnywhere, Category="FlowPilot", meta=(EditCondition="!bPossessByPlayer", EditConditionHides))
 TSubclassOf<AController> ControllerClass;
 
