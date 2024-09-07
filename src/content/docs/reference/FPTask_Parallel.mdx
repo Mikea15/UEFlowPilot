@@ -2,51 +2,35 @@
 title: FPTask_Parallel.h
 description: Reference page for FPTask_Parallel.h
 ---
-import Ref from '../../../components/Ref.astro'
-import LinkRef from '../../../components/LinkRef.astro'
-
-import { Image } from 'astro:assets';
-import schema from '../../../assets/ufptask_parallel.png';
-
-<Ref c="UFPTask_Parallel" p="UFlowPilotTask" />
-
-## Description
-
-<Image src={schema} alt="UFPTask_Parallel Schema" />
-
-`UFPTask_Parallel` is a Task that can run multiple tasks at the same time (in parallel).
-
-There are various _Completion types_ for this task:
-
-- Any Succeed: `UFPTask_Parallel` will succeed at the first Children Task that succeeds. It won't wait for all tasks to be complete. Otherwise fail.
-- All Succeed: `UFPTask_Parallel` will wait for all Child Task's results, and if they all succeeded, then `UFPTask_Parallel` succeeds. Otherwise fail.
-- Any Fail: `UFPTask_Parallel` will succeed at the first Children Task failure. It won't wait for all tasks to be complete. Otherwise fail.
-- All Fail: `UFPTask_Parallel` will wait for all Child Task's results and if they all failed, then `UFPTask_Parallel` succeeds. Otherwise fail.
-
-## Class Info
-- __Parent Class:__ `UFlowPilotParent`
-- __FileName:__ `FPTask_Parallel.h`
-
-## Properties
-
-```cpp
-// This defines what makes this Task succeed to continue flow.
-UPROPERTY(EditDefaultsOnly, Category="FlowPilot")
-EFlowParallelCompletionType DesiredCompletionType = EFlowParallelCompletionType::AllSucceed;
-
-```
-
-## Functions
-
-No functions in this class
 
 ## File Info
 
 __FileName:__ `FPTask_Parallel.h`
 - __Class List:__ 
-[ [`UFPTask_Parallel`](#UFPTask_Parallel) ]
+[ [`UFPTask_Parallel`](#ufptask_parallel) ]
 - __Enum List:__ 
-[  ]
+[ [`EFlowParallelCompletionType`](#eflowparallelcompletiontype) ]
+
+
+## `EFlowParallelCompletionType` 
+
+
+### Properties
+
+```cpp
+// Succeed when one child Succeeds 
+AnySucceed,
+
+// Succeed when all child Succeed 
+AllSucceed,
+
+// Succeed when one child Fails 
+AnyFail,
+
+// Succeed when all child Fail 
+AllFail
+
+```
 
 
 ## `UFPTask_Parallel` 

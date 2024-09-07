@@ -3,57 +3,11 @@ title: FPTask_BlueprintBase.h
 description: Reference page for FPTask_BlueprintBase.h
 ---
 
-## Class Info
-- __FileName:__ `FPTask_BlueprintBase.h`
-
-## Properties
-
-No properties in this class
-
-## Functions
-
-### `ReceiveSetup`
-> Implement setup method. \
-> Called once, during FlowPilot Execution, even after restarts.
-```cpp
-void ReceiveSetup();
-
-```
-
-### `ReceiveEnter`
-> Implement enter Task
-```cpp
-bool ReceiveEnter();
-
-```
-
-### `ReceiveTick`
-> Implement tick Task
-```cpp
-EFPTaskResult ReceiveTick(float DeltaTime);
-
-```
-
-### `ReceiveExit`
-> Implement exit Task
-```cpp
-void ReceiveExit(EFPTaskResult TaskResult);
-
-```
-
-### `ReceiveGetRuntimeDescription`
-> Implement Runtime Description for debug purposes
-```cpp
-void ReceiveGetRuntimeDescription(TArray<FString>& OutLines) const;
-
-```
-
-
 ## File Info
 
 __FileName:__ `FPTask_BlueprintBase.h`
 - __Class List:__ 
-[ [`UFPTask_BlueprintBase`](#UFPTask_BlueprintBase) ]
+[ [`UFPTask_BlueprintBase`](#ufptask_blueprintbase) ]
 
 
 ## `UFPTask_BlueprintBase` 

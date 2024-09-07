@@ -2,41 +2,21 @@
 title: FPTask_Selector.h
 description: Reference page for FPTask_Selector.h
 ---
-import Ref from '../../../components/Ref.astro'
-import LinkRef from '../../../components/LinkRef.astro'
-
-import { Image } from 'astro:assets';
-import schema from '../../../assets/ufptask_selector.png';
-
-<Ref c="UFPTask_Selector" p="UFlowPilotTask" />
-
-## Description
-
-<Image src={schema} alt="UFPTask_Selector Schema" />
-
-`UFPTask_Selector` is a Task can contain many other tasks. Its purpose is to run each task sequentially.
-The schema above explains how it should work.
-
-`UFPTask_Selector` will succeed at the first task that returns success.
-
-If one task fails, `UFPTask_Selector` will try running the next task after the next, until one of them succeeds.
-
-If no task succeeded, then `UFPTask_Selector` will return failure.
-
-## Class Info
-- __Parent Class:__ `UFPTaskRunner`
-- __FileName:__ `FPTask_Selector.h`
-
-## Properties
-
-No properties in this class
-
-## Functions
-
-No functions in this class
 
 ## File Info
 
 __FileName:__ `FPTask_Selector.h`
 - __Class List:__ 
-[  ]
+[ [`UFPTask_Selector`](#ufptask_selector) ]
+
+
+## `UFPTask_Selector` 
+
+
+__Parent Classes:__
+[ `UFPTaskRunner` ]
+
+ \
+Selector Task \
+- Run one FlowPilotTask after another \
+- Stops execution when one Task succeeds 

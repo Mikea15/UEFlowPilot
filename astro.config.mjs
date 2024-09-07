@@ -27,6 +27,9 @@ export default defineConfig({
     editLink: {
       baseUrl: 'https://github.com/Mikea15/UEFlowPilot/tree/main/'
     },
+    tableOfContents: {
+      maxHeadingLevel: 4
+    },
     sidebar: [{
       label: 'About',
       items: [

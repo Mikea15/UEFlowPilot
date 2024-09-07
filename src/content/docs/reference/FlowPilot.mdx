@@ -3,45 +3,11 @@ title: FlowPilot.h
 description: Reference page for FlowPilot.h
 ---
 
-## Class Info
-- __Parent Class:__ `UDataAsset`
-- __FileName:__ `FlowPilot.h`
-
-## Properties
-
-```cpp
-// Flow Id
-UPROPERTY(EditDefaultsOnly, Category = "FlowPilot")
-FName FlowName = "Flow Name";
-
-// Main Flow sequence.
-UPROPERTY(meta=(DeprecatedProperty))
-TArray<TObjectPtr<UFlowPilotTask>> MainFlow_DEPRECATED;
-
-```
-
-## Functions
-
-### `PostLoad`
-> UObject
-```cpp
-virtual void PostLoad() override;
-
-```
-
-### `PostRename`
-> ~UObject
-```cpp
-virtual void PostRename(UObject* OldOuter, const FName OldName) override;
-
-```
-
-
 ## File Info
 
 __FileName:__ `FlowPilot.h`
 - __Class List:__ 
-[ [`UFlowPilot`](#UFlowPilot) ]
+[ [`UFlowPilot`](#uflowpilot) ]
 
 
 ## `UFlowPilot` 

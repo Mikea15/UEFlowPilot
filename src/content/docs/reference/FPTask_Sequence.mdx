@@ -2,39 +2,21 @@
 title: FPTask_Sequence.h
 description: Reference page for FPTask_Sequence.h
 ---
-import Ref from '../../../components/Ref.astro'
-import LinkRef from '../../../components/LinkRef.astro'
-
-import { Image } from 'astro:assets';
-import schema from '../../../assets/ufptask_sequence.png';
-
-<Ref c="UFPTask_Sequence" p="UFlowPilotTask" />
-
-## Description
-
-<Image src={schema} alt="UFPTask_Sequence Schema" />
-
-`UFPTask_Sequence` is a Task can contain many other tasks. Its purpose is to run each task sequentially.
-The schema above explains how it should work.
-
-`UFPTask_Sequence` will succeed if all of its tasks ran and all succeeded.
-
-If one of the Tasks fail, `UFPTask_Sequence` will return failure.
-
-## Class Info
-- __Parent Class:__ `UFPTaskRunner`
-- __FileName:__ `FPTask_Sequence.h`
-
-## Properties
-
-No properties in this class
-
-## Functions
-
-No functions in this class
 
 ## File Info
 
 __FileName:__ `FPTask_Sequence.h`
 - __Class List:__ 
-[  ]
+[ [`UFPTask_Sequence`](#ufptask_sequence) ]
+
+
+## `UFPTask_Sequence` 
+
+
+__Parent Classes:__
+[ `UFPTaskRunner` ]
+
+ \
+Sequence Task \
+- Run one FlowPilotTask after another \
+- Stops execution when one Task fails. 

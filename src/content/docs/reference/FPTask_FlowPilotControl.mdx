@@ -3,44 +3,31 @@ title: FPTask_FlowPilotControl.h
 description: Reference page for FPTask_FlowPilotControl.h
 ---
 
-## Class Info
-- __Parent Class:__ `UFlowPilotTask`
-- __FileName:__ `FPTask_FlowPilotControl.h`
-
-## Properties
-
-```cpp
-// Flow Actor reference to an Actors that have FlowPilotComponents
-UPROPERTY(EditAnywhere, Category = "FlowPilot")
-FFlowActorReference ActorReference;
-
-// Flow Control Type
-UPROPERTY(EditAnywhere, Category = "FlowPilot")
-EFlowPilotControlType ControlType = EFlowPilotControlType::StartFlow;
-
-// Flow Stop Type
-UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(EditCondition="ControlType==EFlowPilotControlType::StopFlow", EditConditionHides))
-EFPStopType StopType = EFPStopType::CancelExecution;
-
-// When starting a new FlowPilot, what's this Task's success condition?\
-// Essentially, we can Succeed instantly, or wait for InProgress or Stopped/Complete execution of the\
-// Controlled FlowPilot Component we're controlling.
-UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(EditCondition="ControlType==EFlowPilotControlType::StartFlow", EditConditionHides))
-EFlowControlSuccessCondition SuccessCondition = EFlowControlSuccessCondition::Instant;
-
-```
-
-## Functions
-
-No functions in this class
-
 ## File Info
 
 __FileName:__ `FPTask_FlowPilotControl.h`
 - __Class List:__ 
-[ [`UFPTask_FlowPilotControl`](#UFPTask_FlowPilotControl) ]
+[ [`UFPTask_FlowPilotControl`](#ufptask_flowpilotcontrol) ]
 - __Enum List:__ 
-[  ]
+[ [`EFlowControlSuccessCondition`](#eflowcontrolsuccesscondition) ]
+
+
+## `EFlowControlSuccessCondition` 
+
+
+### Properties
+
+```cpp
+// Will succeed instantly after Request 
+Instant,
+
+// Will succeed when Flow has Started and is in Progress 
+WaitForFlowStart,
+
+// Will succeed when Flow has Started, and is Complete 
+WaitForFlowComplete
+
+```
 
 
 ## `UFPTask_FlowPilotControl` 
