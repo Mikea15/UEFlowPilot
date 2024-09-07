@@ -19,4 +19,27 @@ __Parent Classes:__
 [ `UFlowPilotTask` ]
 
  
- 
+Play Animation 
+- Can Play an animation on many Pawns 
+- Can wait for animations to finish to continue 
+
+### Properties
+
+```cpp
+// Actors this animation asset will be played on 
+UPROPERTY(EditAnywhere, Category="FlowPilot")
+FFlowActorReference ActorsToPlayAnimationOn;
+
+// Animation Asset to use 
+UPROPERTY(EditAnywhere, Category="FlowPilot")
+TSoftObjectPtr<UAnimationAsset> AnimationAsset;
+
+// Loop animation if true 
+UPROPERTY(EditAnywhere, Category="FlowPilot")
+uint8 bLooping : 1;
+
+// Waits for animation to complete to continue execution 
+UPROPERTY(EditAnywhere, Category="FlowPilot")
+uint8 bWaitForAnimationEnd : 1;
+
+```

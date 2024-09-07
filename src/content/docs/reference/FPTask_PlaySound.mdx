@@ -26,4 +26,12 @@ Plays SoundCues or SoundWaves
 UPROPERTY(EditAnywhere, Category = "FlowPilot")
 FFlowActorReference ActorReference;
 
+// SoundCue to Play 
+UPROPERTY(EditAnywhere, Category="FlowPilot")
+TObjectPtr<USoundCue> SoundToPlay;
+
+// SoundWave to Play 
+UPROPERTY(EditAnywhere, Category="FlowPilot")
+TObjectPtr<USoundWave> SoundWaveToPlay;
+
 ```
