@@ -1,11 +1,11 @@
 ---
-title: Flow Types
-description: FlowTypes.h contains definition about various types used throughout FlowPilot
+title: FlowTypes.h
+description: Reference page for FlowTypes.h
 ---
 
 ## Description
 
-import LinkRef from '../../../components/LinkRef.astro'; 
+import LinkRef from '../../../components/LinkRef.astro';
 
 This page lists the Enums used in FlowPilot.
 
@@ -16,10 +16,10 @@ Used when passed by parameter to a stop running request.
 UENUM()
 enum class EFPStopType : uint8
 {
-	// Normal Stop/Cancellation Flow
-	Normal,
-	// Force Stop Execution
-	Force
+// Normal Stop/Cancellation Flow
+Normal,
+// Force Stop Execution
+Force
 };
 ```
 
@@ -32,16 +32,16 @@ Used to describe `UFlowPilotTask` execution state.
 UENUM(BlueprintType)
 enum class EFPTaskResult : uint8
 {
-	// Not started yet
-	None,
-	// In progress and Ticking
-	InProgress,
-	// Complete with Success Result
-	Succeeded,
-	// Complete with Fail Result
-	Failed,
-	// Not Complete. Return Error
-	Error
+// Not started yet
+None,
+// In progress and Ticking
+InProgress,
+// Complete with Success Result
+Succeeded,
+// Complete with Fail Result
+Failed,
+// Not Complete. Return Error
+Error
 };
 ```
 
@@ -53,18 +53,18 @@ Used to describe `UFlowPilot` execution state.
 UENUM()
 enum class EFlowState : uint8
 {
-	// Not started yet
-	None,
-	// FlowPilot Running
-	InProgress,
-	// FlowPilot has started but is paused
-	Paused,
-	// FlowPilot Done with Success
-	Succeeded,
-	// FlowPilot Done with fail
-	Failed,
-	// FlowPilot not Done, with Error
-	Error
+// Not started yet
+None,
+// FlowPilot Running
+InProgress,
+// FlowPilot has started but is paused
+Paused,
+// FlowPilot Done with Success
+Succeeded,
+// FlowPilot Done with fail
+Failed,
+// FlowPilot not Done, with Error
+Error
 };
 ```
 
@@ -74,11 +74,11 @@ enum class EFlowState : uint8
 UENUM()
 enum class EFlowActorSpawnLifetime : uint8
 {
-	// Spawned actor will live during FlowPilot Execution, will despawn automatically when Flow Ends.
-	FlowPilot,
+// Spawned actor will live during FlowPilot Execution, will despawn automatically when Flow Ends.
+FlowPilot,
 
-	// Spawned actors will stay on the level event when Flow Stops.
-	Persistent
+// Spawned actors will stay on the level event when Flow Stops.
+Persistent
 };
 ```
 
@@ -90,14 +90,14 @@ Used with <LinkRef c="FFlowActorReference" />
 UENUM()
 enum class EFlowActorScope : uint8
 {
-	// Actor or Component is in Own Actor
-	Self,
+// Actor or Component is in Own Actor
+Self,
 
-	// Actor that live in the world
-	InLevel,
-	
-	// Actors spawned at Runtime
-	Runtime,
+// Actor that live in the world
+InLevel,
+
+// Actors spawned at Runtime
+Runtime,
 };
 ```
 
@@ -109,23 +109,31 @@ Used by `UFlowPilotComponent` to control `UFlowPilot` execution mode.
 UENUM()
 enum class EFlowMode : uint8
 {
-	// Executes Flow Once.
-	RunOnce,
+// Executes Flow Once.
+RunOnce,
 
-	// Executes until Succeeds Once
-	RunUntilSucceed,
+// Executes until Succeeds Once
+RunUntilSucceed,
 
-	// Executes until Fails Once
-	RunUntilFail,
+// Executes until Fails Once
+RunUntilFail,
 
-	// Executes in Loop while Succeeds
-	RunWhileSucceed,
+// Executes in Loop while Succeeds
+RunWhileSucceed,
 
-	// Executes in Loop while Fails
-	RunWhileFail,
+// Executes in Loop while Fails
+RunWhileFail,
 
-	// Run non stop.
-	RunNonStop
+// Run non stop.
+RunNonStop
 };
 ```
 
+
+## File Info
+
+__FileName:__ `FlowTypes.h`
+- __Struct List:__ 
+[  ]
+- __Enum List:__ 
+[  ]

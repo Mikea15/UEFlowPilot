@@ -1,0 +1,35 @@
+---
+title: FlowActorReference.h
+description: Reference page for FlowActorReference.h
+---
+
+## File Info
+
+__FileName:__ `FlowActorReference.h`
+- __Struct List:__ 
+[ [`FFlowActorReference`](#FFlowActorReference) ]
+
+
+## `FFlowActorReference` 
+
+
+ \
+FFlowActorReference 
+
+### Properties
+
+```cpp
+// What's the scope of the Subject Actor 
+// (Self, In Level or Runtime) 
+UPROPERTY(EditAnywhere, Category = "Actor Reference")
+EFlowActorScope Scope = EFlowActorScope::Self;
+
+// Level Actor Reference 
+UPROPERTY(EditAnywhere, Category = "Actor Reference", meta=(EditCondition="Scope==EFlowActorScope::InLevel", EditConditionHides))
+TSoftObjectPtr<AActor> LevelActor;
+
+// Runtime Actor, found via Gameplay Tag. 
+UPROPERTY(EditAnywhere, Category = "Actor Reference", meta=(EditCondition="Scope==EFlowActorScope::Runtime", EditConditionHides))
+FGameplayTag ExternalActorTag;
+
+```

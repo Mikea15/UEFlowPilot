@@ -1,6 +1,6 @@
 ---
-title: UFPTask_PossessPawn
-description: Reference page for UFPTask_PossessPawn
+title: FPTask_PossessPawn.h
+description: Reference page for FPTask_PossessPawn.h
 ---
 
 ## Class Info
@@ -8,6 +8,45 @@ description: Reference page for UFPTask_PossessPawn
 - __FileName:__ `FPTask_PossessPawn.h`
 
 ## Properties
+
+```cpp
+// Pawns to Possess
+UPROPERTY(EditAnywhere, Category="FlowPilot")
+FFlowActorReference PawnsToPossess;
+
+// Player Possesses only 1 Pawn
+UPROPERTY(EditAnywhere, Category="FlowPilot")
+bool bPossessByPlayer = false;
+
+// AI Controller Class to Posses Pawns with.
+UPROPERTY(EditAnywhere, Category="FlowPilot", meta=(EditCondition="!bPossessByPlayer", EditConditionHides))
+TSubclassOf<AController> ControllerClass;
+
+```
+
+## Functions
+
+No functions in this class
+
+## File Info
+
+__FileName:__ `FPTask_PossessPawn.h`
+- __Class List:__ 
+[ [`UFPTask_PossessPawn`](#UFPTask_PossessPawn) ]
+
+
+## `UFPTask_PossessPawn` 
+
+
+__Parent Classes:__
+[ `UFlowPilotTask` ]
+
+ \
+Possess Pawn \
+- Spawns a Controller and Possesses a Pawn \
+- Can Posses multiple Pawns at the same time 
+
+### Properties
 
 ```cpp
 // Pawns to Possess 
@@ -23,7 +62,3 @@ UPROPERTY(EditAnywhere, Category="FlowPilot", meta=(EditCondition="!bPossessByPl
 TSubclassOf<AController> ControllerClass;
 
 ```
-
-## Functions
-
-No functions in this class

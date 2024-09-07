@@ -1,6 +1,6 @@
 ---
-title: UFPTask_BlueprintBase
-description: Reference page for UFPTask_BlueprintBase
+title: FPTask_BlueprintBase.h
+description: Reference page for FPTask_BlueprintBase.h
 ---
 
 ## Class Info
@@ -14,37 +14,80 @@ No properties in this class
 
 ### `ReceiveSetup`
 > Implement setup method. \
-> Called once, during FlowPilot Execution, even after restarts. 
+> Called once, during FlowPilot Execution, even after restarts.
 ```cpp
 void ReceiveSetup();
 
 ```
 
 ### `ReceiveEnter`
-> Implement enter Task 
+> Implement enter Task
 ```cpp
 bool ReceiveEnter();
 
 ```
 
 ### `ReceiveTick`
-> Implement tick Task 
+> Implement tick Task
 ```cpp
 EFPTaskResult ReceiveTick(float DeltaTime);
 
 ```
 
 ### `ReceiveExit`
-> Implement exit Task 
+> Implement exit Task
 ```cpp
 void ReceiveExit(EFPTaskResult TaskResult);
 
 ```
 
 ### `ReceiveGetRuntimeDescription`
-> Implement Runtime Description for debug purposes 
+> Implement Runtime Description for debug purposes
 ```cpp
 void ReceiveGetRuntimeDescription(TArray<FString>& OutLines) const;
 
 ```
 
+
+## File Info
+
+__FileName:__ `FPTask_BlueprintBase.h`
+- __Class List:__ 
+[ [`UFPTask_BlueprintBase`](#UFPTask_BlueprintBase) ]
+
+
+## `UFPTask_BlueprintBase` 
+
+
+ \
+Blueprint Base Task \
+- Inherit from Blueprints to have custom BP Tasks. 
+
+### Functions
+
+#### `ReceiveSetup`
+> Implement setup method. \
+> Called once, during FlowPilot Execution, even after restarts. 
+```cpp
+void ReceiveSetup();
+```
+#### `ReceiveEnter`
+> Implement enter Task 
+```cpp
+bool ReceiveEnter();
+```
+#### `ReceiveTick`
+> Implement tick Task 
+```cpp
+EFPTaskResult ReceiveTick(float DeltaTime);
+```
+#### `ReceiveExit`
+> Implement exit Task 
+```cpp
+void ReceiveExit(EFPTaskResult TaskResult);
+```
+#### `ReceiveGetRuntimeDescription`
+> Implement Runtime Description for debug purposes 
+```cpp
+void ReceiveGetRuntimeDescription(TArray<FString>& OutLines) const;
+```

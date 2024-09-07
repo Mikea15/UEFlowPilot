@@ -1,6 +1,6 @@
 ---
-title: UFPTask_TriggerVolume
-description: Reference page for UFPTask_TriggerVolume
+title: FPTask_TriggerVolume.h
+description: Reference page for FPTask_TriggerVolume.h
 ---
 
 ## Class Info
@@ -8,6 +8,47 @@ description: Reference page for UFPTask_TriggerVolume
 - __FileName:__ `FPTask_TriggerVolume.h`
 
 ## Properties
+
+```cpp
+// Trigger to Listen to
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+ETriggerVolumeEvent TriggerEvent;
+
+// Volume Reference Actor
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+FFlowActorReference VolumeReference;
+
+// Actor References to Interact with Volume\
+// Will wait for All Actors this reference finds.\
+// Use unique actor/tag if you want only one resulting actor
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+FFlowActorReference ActorReferences;
+
+```
+
+## Functions
+
+No functions in this class
+
+## File Info
+
+__FileName:__ `FPTask_TriggerVolume.h`
+- __Class List:__ 
+[ [`UFPTask_TriggerVolume`](#UFPTask_TriggerVolume) ]
+- __Enum List:__ 
+[  ]
+
+
+## `UFPTask_TriggerVolume` 
+
+
+__Parent Classes:__
+[ `UFlowPilotTask` ]
+
+ \
+Trigger by Volume 
+
+### Properties
 
 ```cpp
 // Trigger to Listen to 
@@ -18,14 +59,10 @@ ETriggerVolumeEvent TriggerEvent;
 UPROPERTY(EditAnywhere, Category = "FlowPilot")
 FFlowActorReference VolumeReference;
 
-// Actor References to Interact with Volume\ 
-// Will wait for All Actors this reference finds.\ 
+// Actor References to Interact with Volume 
+// Will wait for All Actors this reference finds. 
 // Use unique actor/tag if you want only one resulting actor 
 UPROPERTY(EditAnywhere, Category = "FlowPilot")
 FFlowActorReference ActorReferences;
 
 ```
-
-## Functions
-
-No functions in this class

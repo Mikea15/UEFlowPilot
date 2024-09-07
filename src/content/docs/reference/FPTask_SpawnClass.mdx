@@ -1,6 +1,6 @@
 ---
-title: UFPTask_SpawnClass
-description: Reference page for UFPTask_SpawnClass
+title: FPTask_SpawnClass.h
+description: Reference page for FPTask_SpawnClass.h
 ---
 
 ## Class Info
@@ -8,6 +8,55 @@ description: Reference page for UFPTask_SpawnClass
 - __FileName:__ `FPTask_SpawnClass.h`
 
 ## Properties
+
+```cpp
+// SpawnLifetime dictates when we Destroy this Actor, (or leave it alive forever)
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+EFlowActorSpawnLifetime ActorSpawnLifetime = EFlowActorSpawnLifetime::Persistent;
+
+// UClass to Spawn
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+TObjectPtr<UClass> SpawnClass;
+
+// Spawn Location Reference
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+FFlowActorReference SpawnLocationReference;
+
+// Spawn Offset
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+FVector SpawnOffset = FVector::ZeroVector;
+
+// GameplayTags to add Spawned Actor
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+FGameplayTagContainer TagsToAddActor;
+
+// Spawn Collision Method
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+ESpawnActorCollisionHandlingMethod SpawnCollisionMethods = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+
+```
+
+## Functions
+
+No functions in this class
+
+## File Info
+
+__FileName:__ `FPTask_SpawnClass.h`
+- __Class List:__ 
+[ [`UFPTask_SpawnClass`](#UFPTask_SpawnClass) ]
+
+
+## `UFPTask_SpawnClass` 
+
+
+__Parent Classes:__
+[ `UFlowPilotTask` ]
+
+ \
+Spawns a Class 
+
+### Properties
 
 ```cpp
 // SpawnLifetime dictates when we Destroy this Actor, (or leave it alive forever) 
@@ -35,7 +84,3 @@ UPROPERTY(EditAnywhere, Category = "FlowPilot")
 ESpawnActorCollisionHandlingMethod SpawnCollisionMethods = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
 
 ```
-
-## Functions
-
-No functions in this class

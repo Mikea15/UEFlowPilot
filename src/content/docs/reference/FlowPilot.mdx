@@ -1,6 +1,6 @@
 ---
-title: UFlowPilot
-description: Reference page for UFlowPilot
+title: FlowPilot.h
+description: Reference page for FlowPilot.h
 ---
 
 ## Class Info
@@ -8,6 +8,52 @@ description: Reference page for UFlowPilot
 - __FileName:__ `FlowPilot.h`
 
 ## Properties
+
+```cpp
+// Flow Id
+UPROPERTY(EditDefaultsOnly, Category = "FlowPilot")
+FName FlowName = "Flow Name";
+
+// Main Flow sequence.
+UPROPERTY(meta=(DeprecatedProperty))
+TArray<TObjectPtr<UFlowPilotTask>> MainFlow_DEPRECATED;
+
+```
+
+## Functions
+
+### `PostLoad`
+> UObject
+```cpp
+virtual void PostLoad() override;
+
+```
+
+### `PostRename`
+> ~UObject
+```cpp
+virtual void PostRename(UObject* OldOuter, const FName OldName) override;
+
+```
+
+
+## File Info
+
+__FileName:__ `FlowPilot.h`
+- __Class List:__ 
+[ [`UFlowPilot`](#UFlowPilot) ]
+
+
+## `UFlowPilot` 
+
+
+__Parent Classes:__
+[ `UDataAsset` ]
+
+ \
+FlowPilot Data 
+
+### Properties
 
 ```cpp
 // Flow Id 
@@ -20,19 +66,15 @@ TArray<TObjectPtr<UFlowPilotTask>> MainFlow_DEPRECATED;
 
 ```
 
-## Functions
+### Functions
 
-### `PostLoad`
+#### `PostLoad`
 > UObject 
 ```cpp
 virtual void PostLoad() override;
-
 ```
-
-### `PostRename`
+#### `PostRename`
 > ~UObject 
 ```cpp
 virtual void PostRename(UObject* OldOuter, const FName OldName) override;
-
 ```
-

@@ -1,6 +1,6 @@
 ---
-title: UFPTask_DestroyActor
-description: Reference page for UFPTask_DestroyActor
+title: FPTask_DestroyActor.h
+description: Reference page for FPTask_DestroyActor.h
 ---
 
 ## Class Info
@@ -8,6 +8,39 @@ description: Reference page for UFPTask_DestroyActor
 - __FileName:__ `FPTask_DestroyActor.h`
 
 ## Properties
+
+```cpp
+// Actors to Destroy
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+FFlowActorReference ActorReference;
+
+// Destroy Delay
+UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(ClampMin=0.0f, ForceUnits="Seconds"))
+float Delay = 0.0f;
+
+```
+
+## Functions
+
+No functions in this class
+
+## File Info
+
+__FileName:__ `FPTask_DestroyActor.h`
+- __Class List:__ 
+[ [`UFPTask_DestroyActor`](#UFPTask_DestroyActor) ]
+
+
+## `UFPTask_DestroyActor` 
+
+
+__Parent Classes:__
+[ `UFlowPilotTask` ]
+
+ \
+Destroys Actors 
+
+### Properties
 
 ```cpp
 // Actors to Destroy 
@@ -19,7 +52,3 @@ UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(ClampMin=0.0f, ForceUnits=
 float Delay = 0.0f;
 
 ```
-
-## Functions
-
-No functions in this class

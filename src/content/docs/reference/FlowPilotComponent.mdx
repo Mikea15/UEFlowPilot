@@ -1,6 +1,6 @@
 ---
-title: UFlowPilotComponent
-description: Reference page for UFlowPilotComponent
+title: FlowPilotComponent.h
+description: Reference page for FlowPilotComponent.h
 ---
 import Ref from '../../../components/Ref.astro'
 import LinkRef from '../../../components/LinkRef.astro'
@@ -59,6 +59,156 @@ When a task returns a result, `UFlowPilotComponent` parses it and decides if we 
 ## Properties
 
 ```cpp
+// Automatically starts FlowPilot on BeginPlay
+UPROPERTY(EditAnywhere, Category=FlowPilot)
+uint8 bAutoStartOnBeginPlay : 1;
+
+// FlowPilot Asset.
+UPROPERTY(EditAnywhere, Category=FlowPilot)
+TObjectPtr<UFlowPilot> FlowPilotAsset;
+
+// Overrides FlowPilotAsset with ExecutionMode
+UPROPERTY(EditAnywhere, Category=FlowPilot)
+EFlowMode ExecutionMode = EFlowMode::RunOnce;
+
+// Execution Mode retry delay
+UPROPERTY(EditAnywhere, Category=FlowPilot, meta=(ClampMin="0.0", EditCondition="ExecutionMode != EFlowMode::RunOnce"))
+float RetryDelay = 0.0f;
+
+// FlowPilotLifetimeActors are spawned from FlowPilot, and will auto destroy when Ending
+
+TArray<TWeakObjectPtr<AActor>> FlowPilotLifetimeActors;
+
+```
+
+## Functions
+
+### `SetFlowPilotAsset`
+> Sets FlowPilot data asset
+```cpp
+bool SetFlowPilotAsset(UFlowPilot* InFlowPilotAsset);
+
+```
+
+### `StartFlow`
+> Start Current FlowData
+```cpp
+void StartFlow();
+
+```
+
+### `StopFlow`
+> Stops FlowPilot
+```cpp
+void StopFlow(EFPStopType StopType = EFPStopType::CancelExecution);
+
+```
+
+### `PauseFlow`
+> Pauses FlowPilot. Execution must have been started first
+```cpp
+void PauseFlow();
+
+```
+
+### `UnPauseFlow`
+> UnPauses FlowPilot, if Paused.
+```cpp
+void UnPauseFlow();
+
+```
+
+### `IsPaused`
+> Returns true if FlowPilot is Paused
+```cpp
+bool IsPaused() const { return FlowState == EFlowState::Paused; }
+
+```
+
+### `IsDataSetup`
+> Returns true is setup is valid
+```cpp
+bool IsDataSetup() const { return FlowPilotAsset != nullptr; }
+
+```
+
+### `GetRunState`
+> Returns FlowPilot state
+```cpp
+EFlowState GetRunState() const { return FlowState; }
+
+```
+
+### `IsRunning`
+> Returns true if FlowPilot is in Progress
+```cpp
+bool IsRunning() const { return FlowState == EFlowState::InProgress; }
+
+```
+
+### `FindSingleActor`
+> Finds single actor reference
+```cpp
+AActor* FindSingleActor(const FFlowActorReference& ActorReference);
+
+```
+
+### `FindActors`
+> Finds all actors with reference (usually external tags on multiple actors)
+```cpp
+TArray<AActor*> FindActors(const FFlowActorReference& ActorReference);
+
+```
+
+### `FindSingleActorByTag`
+> Finds and Caches Unique Actor via GameplayTag
+```cpp
+AActor* FindSingleActorByTag(const FGameplayTag& Tag);
+
+```
+
+### `FindActorsByTag`
+> Find All Actors by Tag
+```cpp
+TArray<AActor*> FindActorsByTag(const FGameplayTag& Tag);
+
+```
+
+### `BindToFlowPilotLifetime`
+> Binds Lifetime of Actor to FlowPilot. Will destroy when FlowPilot Completes
+```cpp
+void BindToFlowPilotLifetime(AActor* InActor);
+
+```
+
+### `PrefetchActorReference`
+> Will prefect Actor Reference if Referenced via External Tag.
+```cpp
+void PrefetchActorReference(const FFlowActorReference& ActorReference);
+
+```
+
+
+## File Info
+
+__FileName:__ `FlowPilotComponent.h`
+- __Class List:__ 
+[ [`UFlowPilotComponent`](#UFlowPilotComponent) ]
+
+
+## `UFlowPilotComponent` 
+
+
+__Parent Classes:__
+[ `UActorComponent` ]
+
+ \
+FlowComponent \
+- Initializes, Maintains and Runs a Flow Data Asset. 
+
+### Properties
+
+```cpp
 // Automatically starts FlowPilot on BeginPlay 
 UPROPERTY(EditAnywhere, Category=FlowPilot)
 uint8 bAutoStartOnBeginPlay : 1;
@@ -76,115 +226,84 @@ UPROPERTY(EditAnywhere, Category=FlowPilot, meta=(ClampMin="0.0", EditCondition=
 float RetryDelay = 0.0f;
 
 // FlowPilotLifetimeActors are spawned from FlowPilot, and will auto destroy when Ending 
-
 TArray<TWeakObjectPtr<AActor>> FlowPilotLifetimeActors;
 
 ```
 
-## Functions
+### Functions
 
-### `SetFlowPilotAsset`
+#### `SetFlowPilotAsset`
 > Sets FlowPilot data asset 
 ```cpp
 bool SetFlowPilotAsset(UFlowPilot* InFlowPilotAsset);
-
 ```
-
-### `StartFlow`
+#### `StartFlow`
 > Start Current FlowData 
 ```cpp
 void StartFlow();
-
 ```
-
-### `StopFlow`
+#### `StopFlow`
 > Stops FlowPilot 
 ```cpp
 void StopFlow(EFPStopType StopType = EFPStopType::CancelExecution);
-
 ```
-
-### `PauseFlow`
+#### `PauseFlow`
 > Pauses FlowPilot. Execution must have been started first 
 ```cpp
 void PauseFlow();
-
 ```
-
-### `UnPauseFlow`
+#### `UnPauseFlow`
 > UnPauses FlowPilot, if Paused. 
 ```cpp
 void UnPauseFlow();
-
 ```
-
-### `IsPaused`
+#### `IsPaused`
 > Returns true if FlowPilot is Paused 
 ```cpp
 bool IsPaused() const { return FlowState == EFlowState::Paused; }
-
 ```
-
-### `IsDataSetup`
+#### `IsDataSetup`
 > Returns true is setup is valid 
 ```cpp
 bool IsDataSetup() const { return FlowPilotAsset != nullptr; }
-
 ```
-
-### `GetRunState`
+#### `GetRunState`
 > Returns FlowPilot state 
 ```cpp
 EFlowState GetRunState() const { return FlowState; }
-
 ```
-
-### `IsRunning`
+#### `IsRunning`
 > Returns true if FlowPilot is in Progress 
 ```cpp
 bool IsRunning() const { return FlowState == EFlowState::InProgress; }
-
 ```
-
-### `FindSingleActor`
+#### `FindSingleActor`
 > Finds single actor reference 
 ```cpp
 AActor* FindSingleActor(const FFlowActorReference& ActorReference);
-
 ```
-
-### `FindActors`
+#### `FindActors`
 > Finds all actors with reference (usually external tags on multiple actors) 
 ```cpp
 TArray<AActor*> FindActors(const FFlowActorReference& ActorReference);
-
 ```
-
-### `FindSingleActorByTag`
+#### `FindSingleActorByTag`
 > Finds and Caches Unique Actor via GameplayTag 
 ```cpp
 AActor* FindSingleActorByTag(const FGameplayTag& Tag);
-
 ```
-
-### `FindActorsByTag`
+#### `FindActorsByTag`
 > Find All Actors by Tag 
 ```cpp
 TArray<AActor*> FindActorsByTag(const FGameplayTag& Tag);
-
 ```
-
-### `BindToFlowPilotLifetime`
+#### `BindToFlowPilotLifetime`
 > Binds Lifetime of Actor to FlowPilot. Will destroy when FlowPilot Completes 
 ```cpp
 void BindToFlowPilotLifetime(AActor* InActor);
-
 ```
-
-### `PrefetchActorReference`
+#### `PrefetchActorReference`
 > Will prefect Actor Reference if Referenced via External Tag. 
 ```cpp
 void PrefetchActorReference(const FFlowActorReference& ActorReference);
-
 ```
-

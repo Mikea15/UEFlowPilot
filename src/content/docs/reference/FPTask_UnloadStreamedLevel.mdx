@@ -1,6 +1,6 @@
 ---
-title: UFPTask_UnloadStreamedLevel
-description: Reference page for UFPTask_UnloadStreamedLevel
+title: FPTask_UnloadStreamedLevel.h
+description: Reference page for FPTask_UnloadStreamedLevel.h
 ---
 
 ## Class Info
@@ -8,6 +8,39 @@ description: Reference page for UFPTask_UnloadStreamedLevel
 - __FileName:__ `FPTask_UnloadStreamedLevel.h`
 
 ## Properties
+
+```cpp
+// Streamed Level to unload
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+TSoftObjectPtr<UWorld> Level;
+
+// Blocks Unload thread
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+bool bBlockOnUnload = false;
+
+```
+
+## Functions
+
+No functions in this class
+
+## File Info
+
+__FileName:__ `FPTask_UnloadStreamedLevel.h`
+- __Class List:__ 
+[ [`UFPTask_UnloadStreamedLevel`](#UFPTask_UnloadStreamedLevel) ]
+
+
+## `UFPTask_UnloadStreamedLevel` 
+
+
+__Parent Classes:__
+[ `UFlowPilotTask` ]
+
+ \
+Unloads Streamed Level 
+
+### Properties
 
 ```cpp
 // Streamed Level to unload 
@@ -19,7 +52,3 @@ UPROPERTY(EditAnywhere, Category = "FlowPilot")
 bool bBlockOnUnload = false;
 
 ```
-
-## Functions
-
-No functions in this class

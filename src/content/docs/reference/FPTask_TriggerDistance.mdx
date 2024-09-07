@@ -1,6 +1,6 @@
 ---
-title: UFPTask_TriggerDistance
-description: Reference page for UFPTask_TriggerDistance
+title: FPTask_TriggerDistance.h
+description: Reference page for FPTask_TriggerDistance.h
 ---
 
 ## Class Info
@@ -8,6 +8,49 @@ description: Reference page for UFPTask_TriggerDistance
 - __FileName:__ `FPTask_TriggerDistance.h`
 
 ## Properties
+
+```cpp
+// First Actor Tag
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+FFlowActorReference FirstActorReference;
+
+// Distance Operation
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+ETriggerDistanceOp Operation = ETriggerDistanceOp::LessThan;
+
+// Threshold to check distance against
+UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(ClampMin=0.0f))
+float ThresholdDistance;
+
+// Second Actor Tag
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+FFlowActorReference SecondActorReference;
+
+```
+
+## Functions
+
+No functions in this class
+
+## File Info
+
+__FileName:__ `FPTask_TriggerDistance.h`
+- __Class List:__ 
+[ [`UFPTask_TriggerDistance`](#UFPTask_TriggerDistance) ]
+- __Enum List:__ 
+[  ]
+
+
+## `UFPTask_TriggerDistance` 
+
+
+__Parent Classes:__
+[ `UFlowPilotTask` ]
+
+ \
+Trigger by Distance 
+
+### Properties
 
 ```cpp
 // First Actor Tag 
@@ -27,7 +70,3 @@ UPROPERTY(EditAnywhere, Category = "FlowPilot")
 FFlowActorReference SecondActorReference;
 
 ```
-
-## Functions
-
-No functions in this class

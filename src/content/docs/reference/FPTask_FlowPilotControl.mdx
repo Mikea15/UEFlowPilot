@@ -1,6 +1,6 @@
 ---
-title: UFPTask_FlowPilotControl
-description: Reference page for UFPTask_FlowPilotControl
+title: FPTask_FlowPilotControl.h
+description: Reference page for FPTask_FlowPilotControl.h
 ---
 
 ## Class Info
@@ -8,6 +8,52 @@ description: Reference page for UFPTask_FlowPilotControl
 - __FileName:__ `FPTask_FlowPilotControl.h`
 
 ## Properties
+
+```cpp
+// Flow Actor reference to an Actors that have FlowPilotComponents
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+FFlowActorReference ActorReference;
+
+// Flow Control Type
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+EFlowPilotControlType ControlType = EFlowPilotControlType::StartFlow;
+
+// Flow Stop Type
+UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(EditCondition="ControlType==EFlowPilotControlType::StopFlow", EditConditionHides))
+EFPStopType StopType = EFPStopType::CancelExecution;
+
+// When starting a new FlowPilot, what's this Task's success condition?\
+// Essentially, we can Succeed instantly, or wait for InProgress or Stopped/Complete execution of the\
+// Controlled FlowPilot Component we're controlling.
+UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(EditCondition="ControlType==EFlowPilotControlType::StartFlow", EditConditionHides))
+EFlowControlSuccessCondition SuccessCondition = EFlowControlSuccessCondition::Instant;
+
+```
+
+## Functions
+
+No functions in this class
+
+## File Info
+
+__FileName:__ `FPTask_FlowPilotControl.h`
+- __Class List:__ 
+[ [`UFPTask_FlowPilotControl`](#UFPTask_FlowPilotControl) ]
+- __Enum List:__ 
+[  ]
+
+
+## `UFPTask_FlowPilotControl` 
+
+
+__Parent Classes:__
+[ `UFlowPilotTask` ]
+
+ \
+FlowPilot Control \
+- Starts, Pauses, Stops a FlowPilot Component's execution 
+
+### Properties
 
 ```cpp
 // Flow Actor reference to an Actors that have FlowPilotComponents 
@@ -22,14 +68,10 @@ EFlowPilotControlType ControlType = EFlowPilotControlType::StartFlow;
 UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(EditCondition="ControlType==EFlowPilotControlType::StopFlow", EditConditionHides))
 EFPStopType StopType = EFPStopType::CancelExecution;
 
-// When starting a new FlowPilot, what's this Task's success condition?\ 
-// Essentially, we can Succeed instantly, or wait for InProgress or Stopped/Complete execution of the\ 
+// When starting a new FlowPilot, what's this Task's success condition? 
+// Essentially, we can Succeed instantly, or wait for InProgress or Stopped/Complete execution of the 
 // Controlled FlowPilot Component we're controlling. 
 UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(EditCondition="ControlType==EFlowPilotControlType::StartFlow", EditConditionHides))
 EFlowControlSuccessCondition SuccessCondition = EFlowControlSuccessCondition::Instant;
 
 ```
-
-## Functions
-
-No functions in this class

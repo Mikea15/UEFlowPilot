@@ -1,6 +1,6 @@
 ---
-title: UFPTask_Delay
-description: Reference page for UFPTask_Delay
+title: FPTask_Delay.h
+description: Reference page for FPTask_Delay.h
 ---
 
 ## Class Info
@@ -10,7 +10,7 @@ description: Reference page for UFPTask_Delay
 ## Properties
 
 ```cpp
-// Adds random deviation (TimeAmount - RndDev, TimeAmount + RndDev), Clamped (0.0f - T) 
+// Adds random deviation (TimeAmount - RndDev, TimeAmount + RndDev), Clamped (0.0f - T)
 UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(ClampMin=0.0f, ForceUnits="s"))
 float RandomDeviation = 0.0f;
 
@@ -19,3 +19,28 @@ float RandomDeviation = 0.0f;
 ## Functions
 
 No functions in this class
+
+## File Info
+
+__FileName:__ `FPTask_Delay.h`
+- __Class List:__ 
+[ [`UFPTask_Delay`](#UFPTask_Delay) ]
+
+
+## `UFPTask_Delay` 
+
+
+__Parent Classes:__
+[ `UFlowPilotTask` ]
+
+ \
+Delays Execution 
+
+### Properties
+
+```cpp
+// Adds random deviation (TimeAmount - RndDev, TimeAmount + RndDev), Clamped (0.0f - T) 
+UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(ClampMin=0.0f, ForceUnits="s"))
+float RandomDeviation = 0.0f;
+
+```
