@@ -54,10 +54,6 @@ FFlowActorReference FirstActorReference;
 UPROPERTY(EditAnywhere, Category = "FlowPilot")
 ETriggerDistanceOp Operation = ETriggerDistanceOp::LessThan;
 
-// Distance Method 
-UPROPERTY(EditAnywhere, Category = "FlowPilot")
-EDistanceMethod Method = EDistanceMethod::Distance3D;
-
 // Threshold to check distance against 
 UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(ClampMin=0.0f))
 float ThresholdDistance;
