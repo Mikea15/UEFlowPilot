@@ -22,15 +22,15 @@ Play 2D Sounds
 ### Properties
 
 ```cpp
-// Sound Cue to Play 
+// SoundCue to play 
 UPROPERTY(EditAnywhere, Category="FlowPilot")
 TObjectPtr<USoundCue> SoundToPlay;
 
-// Sound Wave to Play 
+// SoundWave to play 
 UPROPERTY(EditAnywhere, Category="FlowPilot")
 TObjectPtr<USoundWave> SoundWaveToPlay;
 
-// if true, will play as UI sound 
+// Is UI Sound 
 UPROPERTY(EditAnywhere, Category="FlowPilot")
 uint8 bIsUISound : 1;
 
@@ -42,19 +42,19 @@ float VolumeMultiplier = 1.0f;
 UPROPERTY(EditAnywhere, Category="FlowPilot", AdvancedDisplay)
 float PitchMultiplier = 1.0f;
 
-// Play Start Time 
+// Play Start time 
 UPROPERTY(EditAnywhere, Category="FlowPilot", AdvancedDisplay)
 float StartTime = 0.0f;
 
-// Sound Concurrency Settings 
+// Concurrency Settings 
 UPROPERTY(EditAnywhere, Category="FlowPilot", AdvancedDisplay)
 USoundConcurrency* ConcurrencySettings = nullptr;
 
-// if True, sound will persist across level changes 
+// If the Sound persists across level changes 
 UPROPERTY(EditAnywhere, Category="FlowPilot", AdvancedDisplay)
 bool bPersistAcrossLevels = false;
 
-// if true, sound actor will auto destroy once finished playing 
+// Automatically destroy sound when finished playing 
 UPROPERTY(EditAnywhere, Category="FlowPilot", AdvancedDisplay)
 bool bAutoDestroy = true;
 

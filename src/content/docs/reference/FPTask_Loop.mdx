@@ -17,21 +17,4 @@ __Parent Classes:__
 [ `UFlowPilotTask` ]
 
  
-Loops a Task's execution for X amount of times, or infinite 
-
-### Properties
-
-```cpp
-// Task to loop 
-UPROPERTY(EditDefaultsOnly, Instanced, Category = "FlowPilot")
-TObjectPtr<UFlowPilotTask> Task;
-
-// Will forever loop if True 
-UPROPERTY(EditDefaultsOnly, Category = "FlowPilot")
-uint8 bIsInfinite : 1;
-
-// Number of times to repeat the same task 
-UPROPERTY(EditDefaultsOnly, Category = "FlowPilot", meta=(ClampMin=1, EditCondition="!bIsInfinite"))
-int32 Loops = 3;
-
-```
+Executes a Task in a Loop 

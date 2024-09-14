@@ -17,15 +17,11 @@ __Parent Classes:__
 [ `UFlowPilotTask` ]
 
  
-Simple task that adds a delay to the execution flow 
+Delays Execution 
 
 ### Properties
 
 ```cpp
-// Delay Time 
-UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(ClampMin=0.0f, ForceUnits="s"))
-float DelayTime = 0.0f;
-
 // Adds random deviation (TimeAmount - RndDev, TimeAmount + RndDev), Clamped (0.0f - T) 
 UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(ClampMin=0.0f, ForceUnits="s"))
 float RandomDeviation = 0.0f;

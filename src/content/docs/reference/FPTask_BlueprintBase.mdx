@@ -14,8 +14,8 @@ __FileName:__ `FPTask_BlueprintBase.h`
 
 
  
-Create Blueprint Tasks using this class as base. 
-- If Tick is not implemented, will instantly succeed on first tick. 
+Blueprint Base Task 
+- Inherit from Blueprints to have custom BP Tasks. 
 
 ### Functions
 
@@ -26,18 +26,17 @@ Create Blueprint Tasks using this class as base.
 void ReceiveSetup();
 ```
 #### `ReceiveEnter`
-> Implement Enter Task 
+> Implement enter Task 
 ```cpp
 bool ReceiveEnter();
 ```
 #### `ReceiveTick`
-> Implement Tick Task \
-> auto succeeds if not implemented in Blueprint Task 
+> Implement tick Task 
 ```cpp
 EFPTaskResult ReceiveTick(float DeltaTime);
 ```
 #### `ReceiveExit`
-> Implement Exit Task 
+> Implement exit Task 
 ```cpp
 void ReceiveExit(EFPTaskResult TaskResult);
 ```

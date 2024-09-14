@@ -19,26 +19,26 @@ __Parent Classes:__
 [ `UFlowPilotTask` ]
 
  
-Task that plays an animation 
-- Will play the animation to one or multiple Pawns found via FlowActorReference 
-- Option to wait for animations to complete before succeeding 
+Play Animation 
+- Can Play an animation on many Pawns 
+- Can wait for animations to finish to continue 
 
 ### Properties
 
 ```cpp
-// Pawns to play animations on 
+// Actors this animation asset will be played on 
 UPROPERTY(EditAnywhere, Category="FlowPilot")
 FFlowActorReference ActorsToPlayAnimationOn;
 
-// Animation Asset to play 
+// Animation Asset to use 
 UPROPERTY(EditAnywhere, Category="FlowPilot")
 TSoftObjectPtr<UAnimationAsset> AnimationAsset;
 
-// if true, will loop animations 
+// Loop animation if true 
 UPROPERTY(EditAnywhere, Category="FlowPilot")
 uint8 bLooping : 1;
 
-// if true, will wait for animation to finish before succeeding task 
+// Waits for animation to complete to continue execution 
 UPROPERTY(EditAnywhere, Category="FlowPilot")
 uint8 bWaitForAnimationEnd : 1;
 
