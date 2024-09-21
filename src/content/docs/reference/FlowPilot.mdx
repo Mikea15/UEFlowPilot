@@ -17,7 +17,12 @@ __Parent Classes:__
 [ `UDataAsset` ]
 
  
-FlowPilot Data 
+FlowPilot Data Asset 
+- Defines FlowName 
+- Defines Root Sequence 
+By default, all FlowPilot Assets are Sequences which is a good enough point to start your flow. 
+if the need arises, we can potentially add an option to switch to a selector by default 
+for now, if you want a selector first, you can add it as the first child of the sequence, that will work just as well. 
 
 ### Properties
 
@@ -30,17 +35,4 @@ FName FlowName = "Flow Name";
 UPROPERTY(meta=(DeprecatedProperty))
 TArray<TObjectPtr<UFlowPilotTask>> MainFlow_DEPRECATED;
 
-```
-
-### Functions
-
-#### `PostLoad`
-> UObject 
-```cpp
-virtual void PostLoad() override;
-```
-#### `PostRename`
-> ~UObject 
-```cpp
-virtual void PostRename(UObject* OldOuter, const FName OldName) override;
 ```

@@ -7,12 +7,12 @@ description: Reference page for FPTask_TriggerDistance.h
 
 __FileName:__ `FPTask_TriggerDistance.h`
 - __Enum List:__ 
-[ [`ETriggerDistanceOp`](#etriggerdistanceop) | [`EDistanceMethod`](#edistancemethod) ]
+[ [`EDistanceComparisonOp`](#edistancecomparisonop) | [`EDistanceMethod`](#edistancemethod) ]
 - __Class List:__ 
 [ [`UFPTask_TriggerDistance`](#ufptask_triggerdistance) ]
 
 
-### `ETriggerDistanceOp` 
+### `EDistanceComparisonOp` 
 
 
 | Value | Description | 
@@ -42,19 +42,21 @@ __Parent Classes:__
 
  
 Trigger by Distance 
+- Checks distances from Source Actor Reference and Destination Actor Reference 
+- Will use Squared Distances internally. 
 
 ### Properties
 
 ```cpp
-// First Actor Tag 
+// Source Actor to check Distance From 
 UPROPERTY(EditAnywhere, Category = "FlowPilot")
-FFlowActorReference FirstActorReference;
+FFlowActorReference SourceActorReference;
 
-// Distance Operation 
+// Distance Comparison Operation 
 UPROPERTY(EditAnywhere, Category = "FlowPilot")
-ETriggerDistanceOp Operation = ETriggerDistanceOp::LessThan;
+EDistanceComparisonOp Operation = EDistanceComparisonOp::LessThan;
 
-// Distance Method 
+// Distance method to use. 
 UPROPERTY(EditAnywhere, Category = "FlowPilot")
 EDistanceMethod Method = EDistanceMethod::Distance3D;
 
@@ -62,8 +64,8 @@ EDistanceMethod Method = EDistanceMethod::Distance3D;
 UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(ClampMin=0.0f))
 float ThresholdDistance;
 
-// Second Actor Tag 
+// Destination Actor to check Distance From 
 UPROPERTY(EditAnywhere, Category = "FlowPilot")
-FFlowActorReference SecondActorReference;
+FFlowActorReference DestinationActorReference;
 
 ```

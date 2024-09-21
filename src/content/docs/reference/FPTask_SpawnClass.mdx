@@ -6,8 +6,20 @@ description: Reference page for FPTask_SpawnClass.h
 ## File Info
 
 __FileName:__ `FPTask_SpawnClass.h`
+- __Enum List:__ 
+[ [`EFPSpawnLocationType`](#efpspawnlocationtype) ]
 - __Class List:__ 
 [ [`UFPTask_SpawnClass`](#ufptask_spawnclass) ]
+
+
+### `EFPSpawnLocationType` 
+
+
+| Value | Description | 
+| :-- | :-- | 
+| `Reference` | Provide a reference actor for the spawn position | 
+| `World` | Provide World Coordinates for specific position | 
+
 
 
 ## `UFPTask_SpawnClass` 
@@ -17,12 +29,14 @@ __Parent Classes:__
 [ `UFlowPilotTask` ]
 
  
-Spawns a Class 
+Generic Spawn Class Task 
+- Can spawn at a world position, or based on an actor 
+- Option to select Persistent Lifetime or FlowPilot lifetime 
 
 ### Properties
 
 ```cpp
-// Spawn Lifetime dictates when we Destroy this Actor or leave it alive forever 
+// SpawnLifetime dictates when we Destroy this Actor, (or leave it alive forever) 
 UPROPERTY(EditAnywhere, Category = "FlowPilot")
 EFlowActorSpawnLifetime ActorSpawnLifetime = EFlowActorSpawnLifetime::Persistent;
 
@@ -30,13 +44,25 @@ EFlowActorSpawnLifetime ActorSpawnLifetime = EFlowActorSpawnLifetime::Persistent
 UPROPERTY(EditAnywhere, Category = "FlowPilot")
 TObjectPtr<UClass> SpawnClass;
 
-// Spawn Location Reference 
+// Location Type determines World Position, or Relative to an actor 
 UPROPERTY(EditAnywhere, Category = "FlowPilot")
+EFPSpawnLocationType LocationType = EFPSpawnLocationType::Reference;
+
+// Spawn Location Reference 
+UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(EditCondition="LocationType==EFPSpawnLocationType::Reference", EditConditionHides))
 FFlowActorReference SpawnLocationReference;
 
-// Spawn Offset 
-UPROPERTY(EditAnywhere, Category = "FlowPilot")
+// Spawn Offset added to SpawnLocationReference 
+UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(EditCondition="LocationType==EFPSpawnLocationType::Reference", EditConditionHides))
 FVector SpawnOffset = FVector::ZeroVector;
+
+// Spawn World Location 
+UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(EditCondition="LocationType==EFPSpawnLocationType::World", EditConditionHides))
+FVector SpawnWorldLocation = FVector::ZeroVector;
+
+// Spawn World Rotation 
+UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(EditCondition="LocationType==EFPSpawnLocationType::World", EditConditionHides))
+FRotator SpawnWorldRotation = FQuat::Identity.Rotator();
 
 // GameplayTags to add Spawned Actor 
 UPROPERTY(EditAnywhere, Category = "FlowPilot")

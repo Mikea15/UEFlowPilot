@@ -17,8 +17,8 @@ __FileName:__ `FPTask_TriggerVolume.h`
 
 | Value | Description | 
 | :-- | :-- | 
-| `OnEnter` | Triggers when Entering Volume | 
-| `OnExit` | Triggers when Exiting Volume | 
+| `OnEnter` | OnEnter | 
+| `OnExit` | OnExit | 
 
 
 
@@ -29,18 +29,16 @@ __Parent Classes:__
 [ `UFlowPilotTask` ]
 
  
-Trigger by Volume Task 
-- Allows choosing to Trigger (succeed task) on Entry or Exit of a volume 
-- Allows to wait on multiple Pawns 
+Trigger by Volume 
 
 ### Properties
 
 ```cpp
-// Trigger Event to Listen to 
+// Trigger to Listen to 
 UPROPERTY(EditAnywhere, Category = "FlowPilot")
 ETriggerVolumeEvent TriggerEvent;
 
-// Volume Reference Actor. Should be single actor 
+// Volume Reference Actor 
 UPROPERTY(EditAnywhere, Category = "FlowPilot")
 FFlowActorReference VolumeReference;
 

@@ -38,7 +38,8 @@ Parallel Task
 ### Properties
 
 ```cpp
-// This defines what makes this Task succeed to continue flow. 
+// Desired Completion Type allows changing the Parallel Task Behavior 
+// See EFlowParallelCompletetionType enum 
 UPROPERTY(EditDefaultsOnly, Category="FlowPilot")
 EFlowParallelCompletionType DesiredCompletionType = EFlowParallelCompletionType::AllSucceed;
 

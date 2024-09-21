@@ -17,12 +17,31 @@ __Parent Classes:__
 [ `UActorComponent` ]
 
  
-FlowComponent 
-- Initializes, Maintains and Runs a Flow Data Asset. 
+FlowPilotComponent initializes, maintains and runs a FlowPilot Data Asset. 
 
 ### Properties
 
 ```cpp
+// Delegate that indicates a FlowState Chane (OldFlowState, NewFlowState) 
+UPROPERTY(BlueprintAssignable, Category="FlowPilot")
+FFlowStateChangedSignature OnFlowStateChanged;
+
+// Delegate indicating Flow Started 
+UPROPERTY(BlueprintAssignable, Category="FlowPilot")
+FFlowStartedSignature OnFlowStarted;
+
+// Delegate indicating Flow Paused 
+UPROPERTY(BlueprintAssignable, Category="FlowPilot")
+FFlowPausedSignature OnFlowPaused;
+
+// Delegate indicating Flow Error 
+UPROPERTY(BlueprintAssignable, Category="FlowPilot")
+FFlowErrorSignature OnFlowError;
+
+// Delegate indicating Flow Completed 
+UPROPERTY(BlueprintAssignable, Category="FlowPilot")
+FFlowCompletedSignature OnFlowCompleted;
+
 // Automatically starts FlowPilot on BeginPlay 
 UPROPERTY(EditAnywhere, Category=FlowPilot)
 uint8 bAutoStartOnBeginPlay : 1;
@@ -52,7 +71,7 @@ TArray<TWeakObjectPtr<AActor>> FlowPilotLifetimeActors;
 bool SetFlowPilotAsset(UFlowPilot* InFlowPilotAsset);
 ```
 #### `StartFlow`
-> Start Current FlowData 
+> Start Current FlowPilot 
 ```cpp
 void StartFlow();
 ```
@@ -77,27 +96,28 @@ void UnPauseFlow();
 bool IsPaused() const { return FlowState == EFlowState::Paused; }
 ```
 #### `IsDataSetup`
-> Returns true is setup is valid 
+> Returns true if FlowPilotComponent has a FlowPilotAsset assigned. 
 ```cpp
 bool IsDataSetup() const { return FlowPilotAsset != nullptr; }
 ```
 #### `GetRunState`
-> Returns FlowPilot state 
+> Returns FlowPilot Run State 
 ```cpp
 EFlowState GetRunState() const { return FlowState; }
 ```
 #### `IsRunning`
-> Returns true if FlowPilot is in Progress 
+> Returns true if FlowPilot's run state is in Progress 
 ```cpp
 bool IsRunning() const { return FlowState == EFlowState::InProgress; }
 ```
 #### `FindSingleActor`
-> Finds single actor reference 
+> Find a single actor from a FlowActorReference. \
+> If there are multiple assigned to this reference, a warning will show up, and the first result returned 
 ```cpp
 AActor* FindSingleActor(const FFlowActorReference& ActorReference);
 ```
 #### `FindActors`
-> Finds all actors with reference (usually external tags on multiple actors) 
+> Finds all actors from a FlowActorReference 
 ```cpp
 TArray<AActor*> FindActors(const FFlowActorReference& ActorReference);
 ```
@@ -107,17 +127,28 @@ TArray<AActor*> FindActors(const FFlowActorReference& ActorReference);
 AActor* FindSingleActorByTag(const FGameplayTag& Tag);
 ```
 #### `FindActorsByTag`
-> Find All Actors by Tag 
+> Find and Caches all Actors by Tag 
 ```cpp
 TArray<AActor*> FindActorsByTag(const FGameplayTag& Tag);
 ```
 #### `BindToFlowPilotLifetime`
-> Binds Lifetime of Actor to FlowPilot. Will destroy when FlowPilot Completes 
+> Binds Lifetime of Actor to FlowPilot. \
+> 'InActor' will automatically be destroyed when FlowPilot execution ends. 
 ```cpp
 void BindToFlowPilotLifetime(AActor* InActor);
 ```
 #### `PrefetchActorReference`
-> Will prefect Actor Reference if Referenced via External Tag. 
+> Adds 'ActorReference' to list of actors that will be prefetched on 'Setup 
 ```cpp
 void PrefetchActorReference(const FFlowActorReference& ActorReference);
+```
+#### `CacheTaggedActor`
+> Caches 'InActor' with its associated unique tag 'InGameplayTag' 
+```cpp
+void CacheTaggedActor(AActor* InActor, const FGameplayTag& InGameplayTag);
+```
+#### `GetFlowPilotName`
+> Returns FlowPilot Data assets's name. 
+```cpp
+FString GetFlowPilotName() const;
 ```

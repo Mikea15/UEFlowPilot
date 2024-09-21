@@ -22,25 +22,30 @@ FlowPilot Project User Settings.
 ### Properties
 
 ```cpp
-// Will prefetch Actors on Setup 
+// Allows changing the default ticking group for Ticking FlowPilotComponents. 
+// Components tick 'DuringPhysics' by default. 
+UPROPERTY(EditAnywhere, Config, Category="Performance")
+TEnumAsByte<ETickingGroup> DefaultTickingGroup = ETickingGroup::TG_DuringPhysics;
+
+// Will prefetch Actors on FlowPilot Setup Phase 
 UPROPERTY(EditAnywhere, Config, Category="Caching")
-uint8 bPrefetchActorsOnSetup : 1;
+bool bPrefetchActorsOnSetup = true;
 
-// Only show Description On Active Tasks 
+// Show Runtime Descriptions On Active Tasks Only 
 UPROPERTY(EditAnywhere, Config, Category="Debug")
-uint8 bShowDescriptionOnActiveTasks : 1;
+bool bShowDescriptionOnActiveTasks = true;
 
-// Will display future Tasks only when the Parent Task is Active. 
+// Will display future Child Tasks only when the Parent Task is Active. 
 UPROPERTY(EditAnywhere, Config, Category="Debug")
-uint8 bShowFutureChildTasksWhenParentActive : 1;
+bool bShowFutureChildTasksWhenParentActive = true;
 
-// Show X Queued Tasks 
+// Number of Queued Tasks to Show 
 UPROPERTY(EditAnywhere, Config, Category="Debug", meta=(ClampMin=0))
-int32 ShowQueuedTasksCount = 3;
+int32 ShowQueuedTasksCount = 4;
 
-// Show X Completed Tasks 
+// Number of Completed Tasks to Show 
 UPROPERTY(EditAnywhere, Config, Category="Debug", meta=(ClampMin=0))
-int ShowCompletedTasksCount = 3;
+int ShowCompletedTasksCount = 2;
 
 // Scale Debug UI 
 UPROPERTY(EditAnywhere, Config, Category="Debug", meta=(UIMin=0.5f, UIMax=2.0f))
@@ -48,19 +53,19 @@ float DebugFontScale = 1.0f;
 
 // If True, Draws Root Node 
 UPROPERTY(EditAnywhere, Config, Category="Debug")
-uint8 bDrawRoot : 1;
+bool bDrawRoot = false;
 
 // Hierarchy Indentation 
 UPROPERTY(EditAnywhere, Category="Debug|Display Preferences")
-float Indentation = 5.0f;
+float Indentation = 4.0f;
 
 // Text padding 
 UPROPERTY(EditAnywhere, Category="Debug|Display Preferences")
-FVector2D TextPadding = FVector2D(10.0f, 5.0f);
+FVector2D TextPadding = FVector2D(8.0f, 3.5f);
 
 // Tile with background Margin 
 UPROPERTY(EditAnywhere, Category="Debug|Display Preferences")
-float TileVerticalMargin = 2.0f;
+float TileVerticalMargin = 1.75f;
 
 // Running Task Color 
 UPROPERTY(EditAnywhere, Category="Debug|Display Preferences")

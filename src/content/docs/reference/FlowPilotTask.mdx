@@ -56,6 +56,12 @@ virtual void Exit(EFPTaskResult TaskResult);
 ```cpp
 virtual void Reset();
 ```
+#### `FinishTask`
+> Method to call to finish a task. \
+> This method will set EFPTaskResul to Success or Fail on next Tick. 
+```cpp
+void FinishTask(bool bSuccess);
+```
 #### `IsEnabled`
 > Disabled Tasks are skipped during execution 
 ```cpp
@@ -103,7 +109,7 @@ void SetParent(UFlowPilotTask* InParent) { Parent = InParent; }
 bool IsParent() const;
 ```
 #### `GetAsParent`
-> Returns this Cast to FlowPilotParent task. 
+> Returns this object Cast to FlowPilotParent task. 
 ```cpp
 UFlowPilotParent* GetAsParent();
 ```

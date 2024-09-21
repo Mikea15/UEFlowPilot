@@ -1,0 +1,78 @@
+---
+title: FPTask_InsideVolume.h
+description: Reference page for FPTask_InsideVolume.h
+---
+
+## File Info
+
+
+__FileName:__ `FPTask_InsideVolume.h`
+- __Enum List:__ 
+[ [`EInsideVolumeFilterType`](#einsidevolumefiltertype) | [`EInsideVolumeComparisonOp`](#einsidevolumecomparisonop) ]
+- __Class List:__ 
+[ [`UFPTask_InsideVolume`](#ufptask_insidevolume) ]
+
+
+### `EInsideVolumeFilterType` 
+
+
+| Value | Description | 
+| :-- | :-- | 
+| `ByActor` | Filter Actors by Reference | 
+| `ByClass` | Filter Actors by Class | 
+
+
+
+### `EInsideVolumeComparisonOp` 
+
+
+| Value | Description | 
+| :-- | :-- | 
+| `Equal` | Equal | 
+| `NotEqual` | NotEqual | 
+| `MoreThan` | MoreThan | 
+| `MoreThanOrEqual` | MoreThanOrEqual | 
+| `LessThan` | LessThan | 
+| `LessThanOrEqual` | LessThanOrEqual | 
+
+
+
+## `UFPTask_InsideVolume` 
+
+
+__Parent Classes:__
+[ `UFlowPilotTask` ]
+
+ 
+Inside Volume 
+- Specific "Trigger Volume" class that only checks if N Actors are inside a volume. 
+- Actors can be found by ActorReference or Class Type 
+
+### Properties
+
+```cpp
+// Trigger Volume Reference 
+UPROPERTY(EditAnywhere, Category="FlowPilot")
+FFlowActorReference VolumeActorReference;
+
+// Actor Filter Type 
+UPROPERTY(EditAnywhere, Category="FlowPilot")
+EInsideVolumeFilterType FilterActorType = EInsideVolumeFilterType::ByActor;
+
+// Actor Type Reference 
+UPROPERTY(EditAnywhere, Category="FlowPilot", meta=(EditCondition="FilterActorType==EInsideVolumeFilterType::ByActor"))
+FFlowActorReference ActorTypeReference;
+
+// Class Type Reference 
+UPROPERTY(EditAnywhere, Category="FlowPilot", meta=(EditCondition="FilterActorType==EInsideVolumeFilterType::ByClass"))
+TSoftClassPtr<AActor> ClassType;
+
+// Comparison Operation for Actors Requires Inside Volume 
+UPROPERTY(EditAnywhere, Category="FlowPilot", meta=(EditCondition="FilterActorType==EInsideVolumeFilterType::ByClass"))
+EInsideVolumeComparisonOp ComparisonOperation = EInsideVolumeComparisonOp::Equal;
+
+// How many Actors required inside volume 
+UPROPERTY(EditAnywhere, Category="FlowPilot", meta=(EditCondition="FilterActorType==EInsideVolumeFilterType::ByClass"))
+int32 RequiredActorsCount = 1;
+
+```
