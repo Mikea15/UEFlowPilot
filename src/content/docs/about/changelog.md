@@ -5,23 +5,30 @@ description: Record of all FLowPilot changes per version update.
 
 ### v0.9.3
 
-**Upcomming**
- 
-_xx/09/2024_
+_21/09/2024_
 
+**Breaking change:**
+> Unimplemented Tick tasks no longer automatically succeed, allowing FlowPilotComponent to continue execution.
+> FinishTask has to be called for the task to complete, or implement Tick and return manually.
+
+- Feature: Allows changing ticking group in Project Settings.
+- Add: Modal to confirm task deletion
+- Add: Automatic Documentation export to FlowPilot.dev
+- Add: Flow Pilot asset can be created from the Content Browser via the Gameplay Menu
+- Add: New Option to spawn Class at a specific world location/rotation
+- Fix: Rare crash when Task was selected without Outer Class.
 - Fix: Crash on Demo Map when you don't have a class to spawn, but still play the game. Gracefully Log and Exit instead of crash. 
+- Fix: Parallel Task was not respecting disabled nodes.
 - Update: Set default spawn lifetime to persistent
 - Update: Move Defines to FlowPilotGlobals.h
-- Add: Automatic Documentation export to FlowPilot.dev
-- Fix: Rare crash when Task was selected without Outer Class.
 - Update: Remove Root Task and Children from details view. No longer needed as the Tree view works correctly.
-- Add: New Option to spawn Class at a specific world location/rotation
-- Feature: Allows changing ticking group in Project Settings.
-- Fix: Parallel Task was not respecting disabled nodes.
-- Updates: Demo Maps and basic TP Character to remove Dependencies.
-- Add: Modal to confirm task deletion
+- Update: Demo Maps and basic TP Character to remove Dependencies.
 - Update: Default Root node is named after data asset now upon creation
-- Add: Flow Pilot asset can be created from the Content Browser via the Gameplay Menu
+- Update: Change Delegates to dynamic multicast to allow subscribing via BP
+- Update: Simplify finishing of ongoing tasks by calling FinishTask.
+- Update: Rename UFPTask_FlowActorAsset to UFPTask_SubFlow to make it more akin to a group of FlowTasks. (aka SubTree)
+- Update: Remove UFPTaskRunner. Simplified method calls so that most of it is handled via UFPTask_Sequencer. UFPTask_Selector now inherits from UFPTask_Sequencer and swaps Success/Fail behavior
+
 
 
 ### v0.9.2
