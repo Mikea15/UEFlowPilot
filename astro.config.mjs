@@ -43,7 +43,7 @@ export default defineConfig({
       items: [
         // Each item here is one entry in the navigation menu.
         { label: 'Introduction to FlowPilot', link: '/guides/introductiontoflowpilot/' }, 
-        { label: 'Fixing The Demo Level', link: '/guides/fixingthedemolevel/' }, 
+        // { label: 'Fixing The Demo Level', link: '/guides/fixingthedemolevel/' }, 
       ]
     }, {
       label: 'Reference',
