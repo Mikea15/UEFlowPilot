@@ -44,6 +44,8 @@ export default defineConfig({
         { label: 'Introduction to FlowPilot', link: '/guides/introductiontoflowpilot/' }, 
         { label: 'New FlowPilot Assets', link: '/guides/newflowpilotassets/' }, 
         { label: 'FlowPilot Editor', link: '/guides/flowpiloteditor/' }, 
+        { label: 'FlowPilot Editor Settings', link: '/guides/flowpiloteditorsettings/' }, 
+        { label: 'FlowPilot Project Settings', link: '/guides/flowpilotprojectsettings/' }, 
         // { label: 'Fixing The Demo Level', link: '/guides/fixingthedemolevel/' }, 
       ]
     }, {
