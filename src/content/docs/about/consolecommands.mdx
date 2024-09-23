@@ -3,14 +3,21 @@ title: 'Console Commands'
 description: 'List of FlowPilot console commands'
 ---
 
+import { Image } from 'astro:assets';
+import cmd_flowpilot from '../../../assets/cmd_flowpilot.png';
+import cmd_listmapview from '../../../assets/cmd_list.png';
+import cmd_cache from '../../../assets/cmd_cache.png';
+
 The following is a list of all console commands provided by FlowPilot, to help debug and understand its execution, at runtime.
 
 ### `fp.DebugList [0: Off | 1: On]`
 > Shows a list of all FlowPilotComponents in the Level. Each of them as an Index besides the name. This index is used in conjunction with `fp.DebugFlowPilot X` where X is the index for the FlowPilotComponent
-
+<Image src={cmd_listmapview} alt="cmd_listmapview" />
 
 ### `fp.DebugFlowPilot [-1: Off | X: On]`
 > Displays debug for FlowPilotComponent with an Index shown from `fp.DebugList`
+<Image src={cmd_flowpilot} alt="cmd_flowpilot" />
 
 ### `fp.DebugCache [0: Off | 1: On]`
 > Displays a list of actors that are pre-fetched and have a reference held by the `FlowPilotSystemComponent`.
+<Image src={cmd_cache} alt="cmd_cache" />

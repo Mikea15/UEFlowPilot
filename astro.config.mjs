@@ -42,6 +42,8 @@ export default defineConfig({
       items: [
         // Each item here is one entry in the navigation menu.
         { label: 'Introduction to FlowPilot', link: '/guides/introductiontoflowpilot/' }, 
+        { label: 'New FlowPilot Assets', link: '/guides/newflowpilotassets/' }, 
+        { label: 'FlowPilot Editor', link: '/guides/flowpiloteditor/' }, 
         // { label: 'Fixing The Demo Level', link: '/guides/fixingthedemolevel/' }, 
       ]
     }, {
