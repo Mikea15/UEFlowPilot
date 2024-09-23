@@ -7,7 +7,7 @@ description: Reference page for FlowTypes.h
 
 __FileName:__ `FlowTypes.h`
 - __Enum List:__ 
-[ [`EFPInternalTaskState`](#efpinternaltaskstate) | [`EFPStopType`](#efpstoptype) | [`EFPTaskResult`](#efptaskresult) | [`EFlowState`](#eflowstate) | [`EFlowActorScope`](#eflowactorscope) | [`EFlowActorSpawnLifetime`](#eflowactorspawnlifetime) | [`EFlowMode`](#eflowmode) ]
+[ [`EFPInternalTaskState`](#efpinternaltaskstate) | [`EFPStopType`](#efpstoptype) | [`EFPTaskResult`](#efptaskresult) | [`EFlowState`](#eflowstate) | [`EFPActorScope`](#efpactorscope) | [`EFPSpawnLifetime`](#efpspawnlifetime) | [`EFPExecutionMode`](#efpexecutionmode) ]
 - __Struct List:__ 
 [ [`FFlowContext`](#fflowcontext) ]
 
@@ -21,7 +21,7 @@ __FileName:__ `FlowTypes.h`
 | `Setup` | Setup done | 
 | `Started` | Started Execution | 
 | `Ticking` | Is in Progress | 
-| `Completed` | ----, > Ticking = Completed, Completed | 
+| `Completed` | Completed | 
 
 
 
@@ -62,7 +62,7 @@ __FileName:__ `FlowTypes.h`
 
 
 
-### `EFlowActorScope` 
+### `EFPActorScope` 
 
 
 | Value | Description | 
@@ -73,7 +73,7 @@ __FileName:__ `FlowTypes.h`
 
 
 
-### `EFlowActorSpawnLifetime` 
+### `EFPSpawnLifetime` 
 
 
 | Value | Description | 
@@ -83,7 +83,7 @@ __FileName:__ `FlowTypes.h`
 
 
 
-### `EFlowMode` 
+### `EFPExecutionMode` 
 
 
 | Value | Description | 
@@ -102,3 +102,4 @@ __FileName:__ `FlowTypes.h`
 
  
 Flow Context 
+- Contains information passed to each Task that has information about their owner, and runners. 

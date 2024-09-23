@@ -7,12 +7,12 @@ description: Reference page for FPTask_TriggerDistance.h
 
 __FileName:__ `FPTask_TriggerDistance.h`
 - __Enum List:__ 
-[ [`EDistanceComparisonOp`](#edistancecomparisonop) | [`EDistanceMethod`](#edistancemethod) ]
+[ [`EFPDistanceComparisonOp`](#efpdistancecomparisonop) | [`EFPDistanceMethod`](#efpdistancemethod) ]
 - __Class List:__ 
 [ [`UFPTask_TriggerDistance`](#ufptask_triggerdistance) ]
 
 
-### `EDistanceComparisonOp` 
+### `EFPDistanceComparisonOp` 
 
 
 | Value | Description | 
@@ -24,7 +24,7 @@ __FileName:__ `FPTask_TriggerDistance.h`
 
 
 
-### `EDistanceMethod` 
+### `EFPDistanceMethod` 
 
 
 | Value | Description | 
@@ -54,11 +54,11 @@ FFlowActorReference SourceActorReference;
 
 // Distance Comparison Operation 
 UPROPERTY(EditAnywhere, Category = "FlowPilot")
-EDistanceComparisonOp Operation = EDistanceComparisonOp::LessThan;
+EFPDistanceComparisonOp Operation = EFPDistanceComparisonOp::LessThan;
 
 // Distance method to use. 
 UPROPERTY(EditAnywhere, Category = "FlowPilot")
-EDistanceMethod Method = EDistanceMethod::Distance3D;
+EFPDistanceMethod Method = EFPDistanceMethod::Distance3D;
 
 // Threshold to check distance against 
 UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(ClampMin=0.0f))

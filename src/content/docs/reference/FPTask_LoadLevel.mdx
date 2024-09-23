@@ -17,4 +17,34 @@ __Parent Classes:__
 [ `UFlowPilotTask` ]
 
  
-Load Level Task 
+Load Level 
+- Tasks that loads a level, streamed in or not. 
+
+### Properties
+
+```cpp
+// Level to load 
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+TSoftObjectPtr<UWorld> Level;
+
+// Streams level if true 
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+uint8 bStreamLevel : 1;
+
+// Blocks main thread when loading 
+UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(EditCondition="bStreamLevel"))
+uint8 bBlockOnLoad : 1;
+
+// Makes visible after loading if true 
+UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(EditCondition="bStreamLevel"))
+uint8 bMakeVisibleAfterLoad : 1;
+
+// if true, options are reset. 
+UPROPERTY(EditAnywhere, Category = "FlowPilot", meta=(EditCondition="!bStreamLevel"))
+uint8 bAbsolute : 1;
+
+// Load level options 
+UPROPERTY(EditAnywhere, Category = "FlowPilot")
+FString OpenOptions;
+
+```

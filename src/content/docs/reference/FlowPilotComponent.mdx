@@ -52,10 +52,10 @@ TObjectPtr<UFlowPilot> FlowPilotAsset;
 
 // Overrides FlowPilotAsset with ExecutionMode 
 UPROPERTY(EditAnywhere, Category=FlowPilot)
-EFlowMode ExecutionMode = EFlowMode::RunOnce;
+EFPExecutionMode ExecutionMode = EFPExecutionMode::RunOnce;
 
 // Execution Mode retry delay 
-UPROPERTY(EditAnywhere, Category=FlowPilot, meta=(ClampMin="0.0", EditCondition="ExecutionMode != EFlowMode::RunOnce"))
+UPROPERTY(EditAnywhere, Category=FlowPilot, meta=(ClampMin="0.0", EditCondition="ExecutionMode != EFPExecutionMode::RunOnce"))
 float RetryDelay = 0.0f;
 
 // FlowPilotLifetimeActors are spawned from FlowPilot, and will auto destroy when Ending 

@@ -1,0 +1,65 @@
+---
+title: FPTask_ScreenFade.h
+description: Reference page for FPTask_ScreenFade.h
+---
+
+## File Info
+
+__FileName:__ `FPTask_ScreenFade.h`
+- __Enum List:__ 
+[ [`EFPFadeType`](#efpfadetype) ]
+- __Class List:__ 
+[ [`UFPTask_ScreenFade`](#ufptask_screenfade) ]
+
+
+### `EFPFadeType` 
+
+
+| Value | Description | 
+| :-- | :-- | 
+| `FadeIn` | Fade From Transparency to Color | 
+| `FadeOut` | Fade From Color to Transparency | 
+
+
+
+## `UFPTask_ScreenFade` 
+
+
+__Parent Classes:__
+[ `UFlowPilotTask` ]
+
+ 
+ScreenFade. 
+- Allows Starting at a particular screen color 
+- Allows Fading towards another color over time 
+- Allows Fading Audio in Sync 
+- Options to keep Fade at the end of the transition 
+
+### Properties
+
+```cpp
+// Player camera index, usually 0 for first/single player 
+UPROPERTY(EditAnywhere, Category="FlowPilot")
+uint8 PlayerCameraIndex = 0;
+
+// FadeType controls if you want to go from Transparent to Color (FadeIn), or inverse (FadeOut) 
+UPROPERTY(EditAnywhere, Category="FlowPilot")
+EFPFadeType FadeType = EFPFadeType::FadeIn;
+
+// Color to Fade Screen/Camera to. 
+UPROPERTY(EditAnywhere, Category="FlowPilot")
+FLinearColor FadeColor = FLinearColor::Black;
+
+// Fade Duration 
+UPROPERTY(EditAnywhere, Category="FlowPilot", meta=(ForceUnits="s"))
+float FadeDuration = 1.0f;
+
+// Option to sync audio with the fade 
+UPROPERTY(EditAnywhere, Category="FlowPilot")
+bool bSyncAudioFade = true;
+
+// Option to hold the fade when complete (true) or reset (false) 
+UPROPERTY(EditAnywhere, Category="FlowPilot")
+bool bHoldFadeWhenComplete = true;
+
+```

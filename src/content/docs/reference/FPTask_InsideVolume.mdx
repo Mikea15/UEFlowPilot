@@ -5,15 +5,14 @@ description: Reference page for FPTask_InsideVolume.h
 
 ## File Info
 
-
 __FileName:__ `FPTask_InsideVolume.h`
 - __Enum List:__ 
-[ [`EInsideVolumeFilterType`](#einsidevolumefiltertype) | [`EInsideVolumeComparisonOp`](#einsidevolumecomparisonop) ]
+[ [`EFPInsideVolumeFilterType`](#efpinsidevolumefiltertype) | [`EFPInsideVolumeComparisonOp`](#efpinsidevolumecomparisonop) ]
 - __Class List:__ 
 [ [`UFPTask_InsideVolume`](#ufptask_insidevolume) ]
 
 
-### `EInsideVolumeFilterType` 
+### `EFPInsideVolumeFilterType` 
 
 
 | Value | Description | 
@@ -23,7 +22,7 @@ __FileName:__ `FPTask_InsideVolume.h`
 
 
 
-### `EInsideVolumeComparisonOp` 
+### `EFPInsideVolumeComparisonOp` 
 
 
 | Value | Description | 
@@ -57,22 +56,22 @@ FFlowActorReference VolumeActorReference;
 
 // Actor Filter Type 
 UPROPERTY(EditAnywhere, Category="FlowPilot")
-EInsideVolumeFilterType FilterActorType = EInsideVolumeFilterType::ByActor;
+EFPInsideVolumeFilterType FilterActorType = EFPInsideVolumeFilterType::ByActor;
 
 // Actor Type Reference 
-UPROPERTY(EditAnywhere, Category="FlowPilot", meta=(EditCondition="FilterActorType==EInsideVolumeFilterType::ByActor"))
+UPROPERTY(EditAnywhere, Category="FlowPilot", meta=(EditCondition="FilterActorType==EFPInsideVolumeFilterType::ByActor"))
 FFlowActorReference ActorTypeReference;
 
 // Class Type Reference 
-UPROPERTY(EditAnywhere, Category="FlowPilot", meta=(EditCondition="FilterActorType==EInsideVolumeFilterType::ByClass"))
+UPROPERTY(EditAnywhere, Category="FlowPilot", meta=(EditCondition="FilterActorType==EFPInsideVolumeFilterType::ByClass"))
 TSoftClassPtr<AActor> ClassType;
 
 // Comparison Operation for Actors Requires Inside Volume 
-UPROPERTY(EditAnywhere, Category="FlowPilot", meta=(EditCondition="FilterActorType==EInsideVolumeFilterType::ByClass"))
-EInsideVolumeComparisonOp ComparisonOperation = EInsideVolumeComparisonOp::Equal;
+UPROPERTY(EditAnywhere, Category="FlowPilot", meta=(EditCondition="FilterActorType==EFPInsideVolumeFilterType::ByClass"))
+EFPInsideVolumeComparisonOp ComparisonOperation = EFPInsideVolumeComparisonOp::Equal;
 
 // How many Actors required inside volume 
-UPROPERTY(EditAnywhere, Category="FlowPilot", meta=(EditCondition="FilterActorType==EInsideVolumeFilterType::ByClass"))
+UPROPERTY(EditAnywhere, Category="FlowPilot", meta=(EditCondition="FilterActorType==EFPInsideVolumeFilterType::ByClass"))
 int32 RequiredActorsCount = 1;
 
 ```

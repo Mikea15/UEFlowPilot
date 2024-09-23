@@ -22,14 +22,14 @@ FFlowActorReference
 // What's the scope of the Subject Actor 
 // (Self, In Level or Runtime) 
 UPROPERTY(EditAnywhere, Category = "Actor Reference")
-EFlowActorScope Scope = EFlowActorScope::Self;
+EFPActorScope Scope = EFPActorScope::Self;
 
 // Level Actor Reference 
-UPROPERTY(EditAnywhere, Category = "Actor Reference", meta=(EditCondition="Scope==EFlowActorScope::InLevel", EditConditionHides))
+UPROPERTY(EditAnywhere, Category = "Actor Reference", meta=(EditCondition="Scope==EFPActorScope::InLevel", EditConditionHides))
 TSoftObjectPtr<AActor> LevelActor;
 
 // Runtime Actor, found via Gameplay Tag. 
-UPROPERTY(EditAnywhere, Category = "Actor Reference", meta=(EditCondition="Scope==EFlowActorScope::Runtime", EditConditionHides))
+UPROPERTY(EditAnywhere, Category = "Actor Reference", meta=(EditCondition="Scope==EFPActorScope::Runtime", EditConditionHides))
 FGameplayTag ExternalActorTag;
 
 ```
