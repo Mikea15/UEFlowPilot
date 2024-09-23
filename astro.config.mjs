@@ -33,8 +33,7 @@ export default defineConfig({
     sidebar: [{
       label: 'About',
       items: [
-      // Each item here is one entry in the navigation menu.
-      { label: 'Intro',             link: '/about/intro/' }, 
+      // Each item here is one entry in the navigation menu. 
       { label: 'Changelog',         link: '/about/changelog/' }, 
       { label: 'Roadmap',           link: '/about/roadmap/' }, 
       { label: 'Console Commands',  link: '/about/consolecommands/' }

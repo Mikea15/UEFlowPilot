@@ -1,6 +1,6 @@
 ---
 title: Changelog
-description: Record of all FLowPilot changes per version update.
+description: Record of all FlowPilot changes per version update.
 ---
 
 ### v0.9.3
@@ -29,8 +29,6 @@ _21/09/2024_
 - Update: Rename UFPTask_FlowActorAsset to UFPTask_SubFlow to make it more akin to a group of FlowTasks. (aka SubTree)
 - Update: Remove UFPTaskRunner. Simplified method calls so that most of it is handled via UFPTask_Sequencer. UFPTask_Selector now inherits from UFPTask_Sequencer and swaps Success/Fail behavior
 
-
-
 ### v0.9.2
 
 _24/08/2024_
@@ -45,14 +43,12 @@ _24/08/2024_
 - Update: Task Palette has Categories expanded by default now.
 - Update: Exposed method to grab Brushes directly from Tasks for customization
 
-
 ### v0.9.1
 
 _14/07/2024_
 
 - Fix: Task icons paths not showing up.
 - Del: Removes temporary icons for validation to prevent a crash
-
 
 ### v0.9
 
