@@ -17,7 +17,53 @@ __Parent Classes:__
 [ `UFlowPilotTask` ]
 
  
-FlowPilotParent 
 Base class that contains an array of Tasks 
- 
 - Implements base functionality to query, add, remove tasks, etc.. 
+Inherited by Tasks that handle multiple Tasks. 
+
+### Properties
+
+```cpp
+// Tasks this Parent Task handles 
+UPROPERTY(EditDefaultsOnly, Instanced, Category="FlowPilot")
+TArray<TObjectPtr<UFlowPilotTask>> Tasks;
+
+```
+
+### Functions
+
+#### `SetTasks`
+> Set Initial set of tasks 
+```cpp
+void SetTasks(const TArray<TObjectPtr<UFlowPilotTask>>& InTasks);
+```
+#### `AddTask`
+> Adds a new task 
+```cpp
+bool AddTask(const TObjectPtr<UFlowPilotTask>& InTask);
+```
+#### `RemoveTask`
+> Removes a task 
+```cpp
+bool RemoveTask(const TObjectPtr<UFlowPilotTask>& InTask);
+```
+#### `HasTask`
+> Returns true if `InTask` is contained in `Tasks` 
+```cpp
+bool HasTask(const TObjectPtr<UFlowPilotTask>& InTask) const;
+```
+#### `GetTaskCount`
+> Returns number of Tasks 
+```cpp
+int32 GetTaskCount() const { return Tasks.Num(); }
+```
+#### `GetTasks`
+> Returns const array of Tasks 
+```cpp
+const TArray<TObjectPtr<UFlowPilotTask>>& GetTasks() const;
+```
+#### `GetTasksMutable`
+> Returns mutable array of Tasks 
+```cpp
+TArray<TObjectPtr<UFlowPilotTask>>& GetTasksMutable();
+```
